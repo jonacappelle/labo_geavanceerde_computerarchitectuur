@@ -1,2 +1,2 @@
-# labo_geavanceerde_computerarchitectuur
+# Labo Geavanceerde Computerarchitectuur
  
