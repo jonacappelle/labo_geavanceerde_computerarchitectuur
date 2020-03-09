@@ -50,4 +50,11 @@ of
 
 http://cimg.eu/reference/group__cimg__tutorial.html
 
-##
+## Verslag richtlijnen
+
+
+
+- analyse probleem
+- flowcharts + code
+- waarom goed / niet goed?
+- grafieken + tabellen, analyse van performantie
