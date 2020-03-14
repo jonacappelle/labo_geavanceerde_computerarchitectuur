@@ -1,3 +1,7 @@
 \contentsline {figure}{\numberline {1}{\ignorespaces Vergelijking architectuur CPU vs GPU \cite {cudaprogrammingguide}}}{2}
 \contentsline {figure}{\numberline {2}{\ignorespaces Grids, blocks en threads \cite {cudaprogrammingguide}}}{2}
 \contentsline {figure}{\numberline {3}{\ignorespaces Flowchart ADD - INV}}{3}
+\contentsline {figure}{\numberline {4}{\ignorespaces GPU met memory copy}}{4}
+\contentsline {figure}{\numberline {5}{\ignorespaces GPU zonder memory copy}}{5}
+\contentsline {figure}{\numberline {6}{\ignorespaces INV met memory copy}}{5}
+\contentsline {figure}{\numberline {7}{\ignorespaces INV zonder memory copy}}{6}

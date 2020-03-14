@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.11.28)  14 MAR 2020 20:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.11.28)  14 MAR 2020 21:48
 entering extended mode
 **"e:/GOOGLE_DRIVE/SCHOOL 2019-2020/Geavanceerde computerarchitectuur/Labo/ADD_INV_Verslag/main.tex"
 ("e:/GOOGLE_DRIVE/SCHOOL 2019-2020/Geavanceerde computerarchitectuur/Labo/ADD_INV_Verslag/main.tex"
@@ -635,17 +635,163 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 )
 runsystem(if not exist _minted-main mkdir _minted-main)...executed.
 
- (glossaries.tex)
-\glswrite=\write6
-\glo@main@file=\write7
-\openout7 = `main.glo'.
+ ("C:\Users\jonac\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pgf\basiclayer\pgf.sty" ("C:\Users\jonac\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pgf\utilities\pgfrcs.sty" ("C:\Users\jonac\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\utilities\pgfutil-common.tex"
+\pgfutil@everybye=\toks37
+\pgfutil@tempdima=\dimen196
+\pgfutil@tempdimb=\dimen197
+ ("C:\Users\jonac\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\utilities\pgfutil-common-lists.tex")) ("C:\Users\jonac\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\utilities\pgfutil-latex.def"
+\pgfutil@abb=\box69
+ ("C:\Users\jonac\AppData\Local\Programs\MiKTeX 2.9\tex\latex\ms\everyshi.sty"
+Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
+)) ("C:\Users\jonac\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\utilities\pgfrcs.code.tex"
+Package: pgfrcs 2015/08/07 v3.0.1a (rcs-revision 1.31)
+))
+Package: pgf 2015/08/07 v3.0.1a (rcs-revision 1.15)
+ ("C:\Users\jonac\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pgf\basiclayer\pgfcore.sty" ("C:\Users\jonac\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pgf\systemlayer\pgfsys.sty" ("C:\Users\jonac\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsys.code.tex"
+Package: pgfsys 2014/07/09 v3.0.1a (rcs-revision 1.48)
+ ("C:\Users\jonac\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\utilities\pgfkeys.code.tex"
+\pgfkeys@pathtoks=\toks38
+\pgfkeys@temptoks=\toks39
+ ("C:\Users\jonac\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\utilities\pgfkeysfiltered.code.tex"
+\pgfkeys@tmptoks=\toks40
+))
+\pgf@x=\dimen198
+\pgf@y=\dimen199
+\pgf@xa=\dimen256
+\pgf@ya=\dimen257
+\pgf@xb=\dimen258
+\pgf@yb=\dimen259
+\pgf@xc=\dimen260
+\pgf@yc=\dimen261
+\w@pgf@writea=\write6
+\r@pgf@reada=\read4
+\c@pgf@counta=\count335
+\c@pgf@countb=\count336
+\c@pgf@countc=\count337
+\c@pgf@countd=\count338
+\t@pgf@toka=\toks41
+\t@pgf@tokb=\toks42
+\t@pgf@tokc=\toks43
+ ("C:\Users\jonac\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgf.cfg"
+File: pgf.cfg 2008/05/14  (rcs-revision 1.7)
+)
+Driver file for pgf: pgfsys-pdftex.def
+ ("C:\Users\jonac\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsys-pdftex.def"
+File: pgfsys-pdftex.def 2014/10/11  (rcs-revision 1.35)
+ ("C:\Users\jonac\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsys-common-pdf.def"
+File: pgfsys-common-pdf.def 2013/10/10  (rcs-revision 1.13)
+))) ("C:\Users\jonac\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsyssoftpath.code.tex"
+File: pgfsyssoftpath.code.tex 2013/09/09  (rcs-revision 1.9)
+\pgfsyssoftpath@smallbuffer@items=\count339
+\pgfsyssoftpath@bigbuffer@items=\count340
+) ("C:\Users\jonac\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsysprotocol.code.tex"
+File: pgfsysprotocol.code.tex 2006/10/16  (rcs-revision 1.4)
+)) ("C:\Users\jonac\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcore.code.tex"
+Package: pgfcore 2010/04/11 v3.0.1a (rcs-revision 1.7)
+ ("C:\Users\jonac\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\math\pgfmath.code.tex" ("C:\Users\jonac\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\math\pgfmathcalc.code.tex" ("C:\Users\jonac\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\math\pgfmathutil.code.tex") ("C:\Users\jonac\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\math\pgfmathparser.code.tex"
+\pgfmath@dimen=\dimen262
+\pgfmath@count=\count341
+\pgfmath@box=\box70
+\pgfmath@toks=\toks44
+\pgfmath@stack@operand=\toks45
+\pgfmath@stack@operation=\toks46
+) ("C:\Users\jonac\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.code.tex" ("C:\Users\jonac\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.basic.code.tex") ("C:\Users\jonac\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.trigonometric.code.tex") ("C:\Users\jonac\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.random.code.tex") ("C:\Users\jonac\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.comparison.code.tex") ("C:\Users\jonac\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.base.code.tex") ("C:\Users\jonac\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.round.code.tex") ("C:\Users\jonac\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.misc.code.tex") ("C:\Users\jonac\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.integerarithmetics.code.tex"))) ("C:\Users\jonac\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfloat.code.tex"
+\c@pgfmathroundto@lastzeros=\count342
+)) ("C:\Users\jonac\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorepoints.code.tex"
+File: pgfcorepoints.code.tex 2013/10/07  (rcs-revision 1.27)
+\pgf@picminx=\dimen263
+\pgf@picmaxx=\dimen264
+\pgf@picminy=\dimen265
+\pgf@picmaxy=\dimen266
+\pgf@pathminx=\dimen267
+\pgf@pathmaxx=\dimen268
+\pgf@pathminy=\dimen269
+\pgf@pathmaxy=\dimen270
+\pgf@xx=\dimen271
+\pgf@xy=\dimen272
+\pgf@yx=\dimen273
+\pgf@yy=\dimen274
+\pgf@zx=\dimen275
+\pgf@zy=\dimen276
+) ("C:\Users\jonac\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorepathconstruct.code.tex"
+File: pgfcorepathconstruct.code.tex 2013/10/07  (rcs-revision 1.29)
+\pgf@path@lastx=\dimen277
+\pgf@path@lasty=\dimen278
+) ("C:\Users\jonac\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorepathusage.code.tex"
+File: pgfcorepathusage.code.tex 2014/11/02  (rcs-revision 1.24)
+\pgf@shorten@end@additional=\dimen279
+\pgf@shorten@start@additional=\dimen280
+) ("C:\Users\jonac\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorescopes.code.tex"
+File: pgfcorescopes.code.tex 2015/05/08  (rcs-revision 1.46)
+\pgfpic=\box71
+\pgf@hbox=\box72
+\pgf@layerbox@main=\box73
+\pgf@picture@serial@count=\count343
+) ("C:\Users\jonac\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoregraphicstate.code.tex"
+File: pgfcoregraphicstate.code.tex 2014/11/02  (rcs-revision 1.12)
+\pgflinewidth=\dimen281
+) ("C:\Users\jonac\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoretransformations.code.tex"
+File: pgfcoretransformations.code.tex 2015/08/07  (rcs-revision 1.20)
+\pgf@pt@x=\dimen282
+\pgf@pt@y=\dimen283
+\pgf@pt@temp=\dimen284
+) ("C:\Users\jonac\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorequick.code.tex"
+File: pgfcorequick.code.tex 2008/10/09  (rcs-revision 1.3)
+) ("C:\Users\jonac\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoreobjects.code.tex"
+File: pgfcoreobjects.code.tex 2006/10/11  (rcs-revision 1.2)
+) ("C:\Users\jonac\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorepathprocessing.code.tex"
+File: pgfcorepathprocessing.code.tex 2013/09/09  (rcs-revision 1.9)
+) ("C:\Users\jonac\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorearrows.code.tex"
+File: pgfcorearrows.code.tex 2015/05/14  (rcs-revision 1.43)
+\pgfarrowsep=\dimen285
+) ("C:\Users\jonac\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoreshade.code.tex"
+File: pgfcoreshade.code.tex 2013/07/15  (rcs-revision 1.15)
+\pgf@max=\dimen286
+\pgf@sys@shading@range@num=\count344
+) ("C:\Users\jonac\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoreimage.code.tex"
+File: pgfcoreimage.code.tex 2013/07/15  (rcs-revision 1.18)
+ ("C:\Users\jonac\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoreexternal.code.tex"
+File: pgfcoreexternal.code.tex 2014/07/09  (rcs-revision 1.21)
+\pgfexternal@startupbox=\box74
+))
+("C:\Users\jonac\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorelayers.code.tex"
+File: pgfcorelayers.code.tex 2013/07/18  (rcs-revision 1.7)
+) ("C:\Users\jonac\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoretransparency.code.tex"
+File: pgfcoretransparency.code.tex 2013/09/30  (rcs-revision 1.5)
+) ("C:\Users\jonac\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorepatterns.code.tex"
+File: pgfcorepatterns.code.tex 2013/11/07  (rcs-revision 1.5)
+))) ("C:\Users\jonac\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\modules\pgfmoduleshapes.code.tex"
+File: pgfmoduleshapes.code.tex 2014/03/21  (rcs-revision 1.35)
+\pgfnodeparttextbox=\box75
+) ("C:\Users\jonac\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\modules\pgfmoduleplot.code.tex"
+File: pgfmoduleplot.code.tex 2015/08/03  (rcs-revision 1.13)
+) ("C:\Users\jonac\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pgf\compatibility\pgfcomp-version-0-65.sty"
+Package: pgfcomp-version-0-65 2007/07/03 v3.0.1a (rcs-revision 1.7)
+\pgf@nodesepstart=\dimen287
+\pgf@nodesepend=\dimen288
+) ("C:\Users\jonac\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pgf\compatibility\pgfcomp-version-1-18.sty"
+Package: pgfcomp-version-1-18 2007/07/23 v3.0.1a (rcs-revision 1.1)
+)) (glossaries.tex)
+\glswrite=\write7
+\glo@main@file=\write8
+\openout8 = `main.glo'.
 
 Package glossaries Info: Writing glossary file main.glo on input line 32.
 runsystem(for ^%i in (pygmentize.exe pygmentize.bat pygmentize.cmd) do set > main.aex <nul: /p x=^%~$PATH:i>> main.aex)...executed.
 
 runsystem(del main.aex)...executed.
 
- (main.aux)
+ (main.aux
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 69.
@@ -775,17 +921,17 @@ Dictionary: translator-basic-dictionary, Language: English
 File: siunitx-abbreviations.cfg 2017/11/26 v2.7k siunitx: Abbreviated units
 ) ("C:\Users\jonac\AppData\Local\Programs\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count335
-\scratchdimen=\dimen196
-\scratchbox=\box69
-\nofMPsegments=\count336
-\nofMParguments=\count337
-\everyMPshowfont=\toks37
-\MPscratchCnt=\count338
-\MPscratchDim=\dimen197
-\MPnumerator=\count339
-\makeMPintoPDFobject=\count340
-\everyMPtoPDFconversion=\toks38
+\scratchcounter=\count345
+\scratchdimen=\dimen289
+\scratchbox=\box76
+\nofMPsegments=\count346
+\nofMParguments=\count347
+\everyMPshowfont=\toks47
+\MPscratchCnt=\count348
+\MPscratchDim=\dimen290
+\MPnumerator=\count349
+\makeMPintoPDFobject=\count350
+\everyMPtoPDFconversion=\toks48
 ) ("C:\Users\jonac\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty"
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
  ("C:\Users\jonac\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\grfext.sty"
@@ -801,6 +947,7 @@ Package grfext Info: Graphics extension search list:
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
 (lastpage)             ! on input line 69.
+ ABD: EveryShipout initializing macros
 *geometry* verbose mode - [ newgeometry ] result:
 * driver: pdftex
 * paper: a4paper
@@ -834,48 +981,48 @@ Package lastpage Info: Please have a look at the pageslts package at
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-<logo_kuleuven.png, id=1, 186.6975pt x 317.185pt>
+<logo_kuleuven.png, id=4, 186.6975pt x 317.185pt>
 File: logo_kuleuven.png Graphic file (type png)
 <use logo_kuleuven.png>
 Package pdftex.def Info: logo_kuleuven.png  used on input line 77.
 (pdftex.def)             Requested size: 54.37502pt x 92.37814pt.
  [1
 
-\openout6 = `main.xdy'.
+\openout7 = `main.xdy'.
 
 
 {C:/Users/jonac/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./logo_kuleuven.png>] [2
 
 ] (main.toc)
-\tf@toc=\write8
-\openout8 = `main.toc'.
+\tf@toc=\write9
+\openout9 = `main.toc'.
 
  (main.lof)
-\tf@lof=\write9
-\openout9 = `main.lof'.
+\tf@lof=\write10
+\openout10 = `main.lof'.
 
  (main.lot)
-\tf@lot=\write10
-\openout10 = `main.lot'.
+\tf@lot=\write11
+\openout11 = `main.lot'.
 
  (main.lol)
-\tf@lol=\write11
-\openout11 = `main.lol'.
+\tf@lol=\write12
+\openout12 = `main.lol'.
 
  [1
 
 ]
-<gpu-devotes-more-transistors-to-data-processing.png, id=20, 324.46219pt x 105.39375pt>
+<gpu-devotes-more-transistors-to-data-processing.png, id=23, 324.46219pt x 105.39375pt>
 File: gpu-devotes-more-transistors-to-data-processing.png Graphic file (type png)
 <use gpu-devotes-more-transistors-to-data-processing.png>
 Package pdftex.def Info: gpu-devotes-more-transistors-to-data-processing.png  used on input line 125.
 (pdftex.def)             Requested size: 227.12196pt x 73.7751pt.
-<grid-of-thread-blocks.png, id=21, 324.46219pt x 281.55188pt>
+<grid-of-thread-blocks.png, id=24, 324.46219pt x 281.55188pt>
 File: grid-of-thread-blocks.png Graphic file (type png)
 <use grid-of-thread-blocks.png>
 Package pdftex.def Info: grid-of-thread-blocks.png  used on input line 135.
 (pdftex.def)             Requested size: 194.6788pt x 168.93242pt.
-<flowchart_inv_add.pdf, id=22, 531.90718pt x 666.57025pt>
+<flowchart_inv_add.pdf, id=25, 531.90718pt x 666.57025pt>
 File: flowchart_inv_add.pdf Graphic file (type pdf)
 <use flowchart_inv_add.pdf>
 Package pdftex.def Info: flowchart_inv_add.pdf  used on input line 158.
@@ -888,7 +1035,36 @@ Overfull \vbox (7.93933pt too high) has occurred while \output is active []
  [3 <./flowchart_inv_add.pdf
 
 pdfTeX warning: pdflatex (file ./flowchart_inv_add.pdf): PDF inclusion: invalid other resource which is no dict (key 'ProcSets', type <array>); ignored.
->] [4] (_minted-main/default-pyg-prefix.pygstyle) (_minted-main/default.pygstyle) (_minted-main/87AB25CE812582A16D21D139CF2F1DB19A57BB236B29B4E350057A2200CD3BAF.pygtex
+>] (graphs/ADD_gpu_with_memcopy_10mil_goed.pgf
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 103.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <5.5> not available
+(Font)              size <5> substituted on input line 103.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <5.5> not available
+(Font)              size <5> substituted on input line 103.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <5.5> not available
+(Font)              size <5> substituted on input line 103.
+
+
+LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <5.5> not available
+(Font)              size <5> substituted on input line 103.
+
+
+LaTeX Font Warning: Font shape `OT1/cmtt/m/n' in size <5.5> not available
+(Font)              size <5> substituted on input line 103.
+
+) (graphs/ADD_gpu_without_memcopy_10mil.pgf)
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [4] (graphs/INV_gpu_with_memcopy_100mil.pgf) (graphs/INV_gpu_without_memcopy_100mil.pgf)
+Underfull \vbox (badness 1102) has occurred while \output is active []
+
+ [5] [6] [7] (_minted-main/default-pyg-prefix.pygstyle) (_minted-main/default.pygstyle) (_minted-main/87AB25CE812582A16D21D139CF2F1DB19A57BB236B29B4E350057A2200CD3BAF.pygtex
 Overfull \hbox (3.47878pt too wide) in paragraph at lines 2--2
 | | | |[]\OT1/cmtt/m/it/10 ////////////////////////////////////////////////////////////////////////////////[]|  
  []
@@ -928,7 +1104,7 @@ Overfull \hbox (3.47878pt too wide) in paragraph at lines 48--48
 
 Underfull \vbox (badness 6876) has occurred while \output is active []
 
- [5]
+ [8]
 Overfull \hbox (3.47878pt too wide) in paragraph at lines 70--70
 | | | |[]\OT1/cmtt/m/it/10 ////////////////////////////////////////////////////////////////////////////////[]|  
  []
@@ -951,10 +1127,10 @@ Overfull \hbox (3.47878pt too wide) in paragraph at lines 95--95
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [6]
+ [9]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [7]
+ [10]
 Overfull \hbox (87.47804pt too wide) in paragraph at lines 161--161
 | | | |[][][]\OT1/cmtt/m/it/10 ////////////////////////////////////////////////////////////////////////////////[]|  
  []
@@ -977,12 +1153,12 @@ Overfull \hbox (87.47804pt too wide) in paragraph at lines 177--177
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [8]
+ [11]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [9]) [10] (main.bbl) 
+ [12]) [13] (main.bbl) 
 AED: lastpage setting LastPage
-[11
+[14
 
 ]
 
@@ -990,19 +1166,27 @@ Package glossaries Warning: No \printglossary or \printglossaries found.
 (Remove \makeglossaries if you don't want any glossaries.) 
 This document will not have a glossary.
 
-(main.aux) ) 
+(main.aux)
+
+LaTeX Font Warning: Size substitutions with differences
+(Font)              up to 0.5pt have occurred.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
 Here is how much of TeX's memory you used:
- 24294 strings out of 492970
- 477309 string characters out of 3126593
- 613074 words of memory out of 3000000
- 27865 multiletter control sequences out of 15000+200000
- 541310 words of font info for 58 fonts, out of 3000000 for 9000
+ 31373 strings out of 492970
+ 630708 string characters out of 3126593
+ 1077734 words of memory out of 3000000
+ 34764 multiletter control sequences out of 15000+200000
+ 543377 words of font info for 66 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 46i,11n,63p,2253b,514s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 48i,11n,63p,2253b,515s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmitt10.pfb><C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on main.pdf (13 pages, 234212 bytes).
+Output written on main.pdf (16 pages, 255399 bytes).
 PDF statistics:
- 107 PDF objects out of 1000 (max. 8388607)
+ 119 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 33 words of extra memory for PDF output out of 10000 (max. 10000000)
 

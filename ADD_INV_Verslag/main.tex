@@ -25,7 +25,7 @@
 % 3) install pygments (pip install Pygments)
 % add pygments to your PATH, the command "pip show Pygments" shows where the lib is installed
 % Of course, pdfLaTeX (or whatever engine/format you use) still has to be called with the -shell-escape option.
-
+\usepackage{pgf}
 
 
 \loadglsentries{glossaries.tex}
@@ -168,14 +168,52 @@ De volledige cuda code kan u terug vinden in bijlage \ref{code} op pagina \pager
 %----------------------------------------------------------------------------------------
 \section{Analyse performantie}
 
-\subsection{Tijd op CPU}
+%----------------------------------------------------------------------------------------
+\subsection{ADD}
+%----------------------------------------------------------------------------------------
+\subsubsection{Tijd op GPU}
 
-\subsection{Tijd op GPU}
+\begin{figure}[H]
+    \centering
+    \input{graphs/ADD_gpu_with_memcopy_10mil_goed.pgf}
+    \caption{GPU met memory copy}
+    \label{}
+\end{figure}
 
+\begin{figure}[H]
+    \centering
+    \input{graphs/ADD_gpu_without_memcopy_10mil.pgf}
+    \caption{GPU zonder memory copy}
+    \label{}
+\end{figure}
+
+\subsubsection{Tijd op CPU}
+
+%----------------------------------------------------------------------------------------
+\subsection{INV}
+%----------------------------------------------------------------------------------------
+\subsubsection{Tijd op GPU}
+
+\begin{figure}[H]
+    \centering
+    \input{graphs/INV_gpu_with_memcopy_100mil.pgf}
+    \caption{INV met memory copy}
+    \label{}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \input{graphs/INV_gpu_without_memcopy_100mil.pgf}
+    \caption{INV zonder memory copy}
+    \label{}
+\end{figure}
+
+\subsubsection{Tijd op CPU}
 
 %----------------------------------------------------------------------------------------
 %	BESLUIT
 %----------------------------------------------------------------------------------------
+\newpage
 \section{Besluit}
 % waarom goed / niet goed
 
