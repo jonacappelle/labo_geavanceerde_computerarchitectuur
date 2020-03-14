@@ -1,17 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % LaTeX Template
-% Contributors:
-% - Gilles Callebaut
-% - Guus Leenders
-% - Stijn Crul
-%
-% Original author:
-% Linux and Unix Users Group at Virginia Tech Wiki
-% (https://vtluug.org/wiki/Example_LaTeX_chem_lab_report)
-%
-% License:
-% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
-%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %----------------------------------------------------------------------------------------
@@ -23,7 +11,7 @@
 
 \usepackage{siunitx} % Provides the \SI{}{} and \si{} command for typesetting SI units
 \usepackage{graphicx} % Required for the inclusion of images
-\usepackage{natbib} % Required to change bibliography style to APA
+\usepackage[square,sort,comma,numbers]{natbib}
 \usepackage{amsmath} % Required for some math elements
 \usepackage{lastpage} % know last page (used in fancy header)
 \usepackage{fancyhdr} % Fancy Header
@@ -117,34 +105,93 @@ Instructor: &  Stijn Crul% Instructor/supervisor
 \pagenumbering{arabic}% Arabic page numbers (and reset to 1)
 
 \tableofcontents
-
+\listoffigures
+\listoftables
 \listoflistings%
 \clearpage
 
-
+%----------------------------------------------------------------------------------------
+%	INLEIDING
+%----------------------------------------------------------------------------------------
 \section{Inleiding}
+In dit eerste labo geavanceerde computerarchitectuur maken we kennis met CUDA, een extensie van de C programmeertaal gemaakt door nVidia. Het grote voordeel hierbij is dat de code op de GPU kan uitgevoerd worden. Hierdoor kan de programmeur gebruik maken van de zeer grote parallele rekenkracht van een nVidia grafische kaart. Cuda is enkel geschikt voor algoritmes die geparalleliseerd kunnen worden.
 
+In dit eerste labo gaan we twee kleine cuda programmaatjes schrijven. Het eerste is om twee arrays op te tellen, het tweede is om een arrray te inverteren.
+\cite{whatiscuda}
 
+De architectuur van een CPU en GPU verschilt drastisch (zie figuur \ref{fig:cpugpu}).
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.7]{gpu-devotes-more-transistors-to-data-processing.png}
+    \caption{Vergelijking architectuur CPU vs GPU \cite{cudaprogrammingguide}}
+    \label{fig:cpugpu}
+\end{figure}
 
-\section{Code}
-\inputminted[linenos=true, breaklines=true]{cpp}{template.cu}
+Een GPU bestaat uit grids, blocks en threads. Een grid bestaat uit verschillende blocks, die op zijn beurt bestaat uit verschillende threads. Nu is het aan de programmeur om deze threads op zo'n efficient mogelijke manier te gebruiken.
+\cite{cudaprogrammingguide}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.6]{grid-of-thread-blocks.png}
+    \caption{Grids, blocks en threads \cite{cudaprogrammingguide}}
+    \label{fig:gridthreadblocks}
+\end{figure}
 
+%----------------------------------------------------------------------------------------
+%	PROBLEEMSTELLING
+%----------------------------------------------------------------------------------------
+\section{Probleemstelling}
+We zullen in dit labo twee arrays optellen en een array inverteren. We zullen dit een aantal keren doen. De timing om al deze operaties uit te voeren zal opgenomen worden, dit zowel op de GPU als op de CPU. Hieruit zullen we laten conclusies kunnen trekken. We onderzoeken ook de invloed van de blocksize op de GPU. De operaties op de GPU zullen getimed worden met het copi\"eren van data naar de GPU en terug en zonder het copi\"eren van de data.
 
+% welke uitdagingen
+% wat wordt er onderzocht
+
+%----------------------------------------------------------------------------------------
+%	OPLOSSING
+%----------------------------------------------------------------------------------------
+\section{Oplossing}
+
+\subsection{Flowchart code}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\columnwidth]{flowchart_inv_add.pdf}
+    \caption{Flowchart ADD - INV}
+    \label{fig:flowchart}
+\end{figure}
+
+\subsection{Code}
+De volledige cuda code kan u terug vinden in bijlage \ref{code} op pagina \pageref{code}.
+
+%----------------------------------------------------------------------------------------
+%	ANALYSE PERFORMANTIE
+%----------------------------------------------------------------------------------------
+\section{Analyse performantie}
+
+\subsection{Tijd op CPU}
+
+\subsection{Tijd op GPU}
 
 
 %----------------------------------------------------------------------------------------
-%	CONCLUSION
+%	BESLUIT
 %----------------------------------------------------------------------------------------
-\section{Conclusion}
+\section{Besluit}
+% waarom goed / niet goed
 
+
+
+\newpage
+\appendix
+\section{CODE}
+\label{code}
+\inputminted[linenos=true, breaklines=true]{cuda}{template.cu}
 
 %----------------------------------------------------------------------------------------
 %	BIBLIOGRAPHY
 %----------------------------------------------------------------------------------------
 \clearpage
-\bibliographystyle{apalike}
-
+\bibliographystyle{IEEEtranN}
 \bibliography{bib}
 
 %----------------------------------------------------------------------------------------

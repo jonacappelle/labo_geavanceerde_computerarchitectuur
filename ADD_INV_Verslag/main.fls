@@ -257,9 +257,30 @@ INPUT main.toc
 INPUT main.toc
 INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/tfm/public/cm/cmbx10.tfm
 OUTPUT main.toc
+INPUT main.lof
+INPUT main.lof
+OUTPUT main.lof
+INPUT main.lot
+INPUT main.lot
+OUTPUT main.lot
 INPUT main.lol
 INPUT main.lol
 OUTPUT main.lol
+INPUT gpu-devotes-more-transistors-to-data-processing.png
+INPUT ./gpu-devotes-more-transistors-to-data-processing.png
+INPUT ./gpu-devotes-more-transistors-to-data-processing.png
+INPUT ./gpu-devotes-more-transistors-to-data-processing.png
+INPUT ./gpu-devotes-more-transistors-to-data-processing.png
+INPUT grid-of-thread-blocks.png
+INPUT ./grid-of-thread-blocks.png
+INPUT ./grid-of-thread-blocks.png
+INPUT ./grid-of-thread-blocks.png
+INPUT ./grid-of-thread-blocks.png
+INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/tfm/public/cm/cmbx12.tfm
+INPUT flowchart_inv_add.pdf
+INPUT ./flowchart_inv_add.pdf
+INPUT ./flowchart_inv_add.pdf
+INPUT ./flowchart_inv_add.pdf
 INPUT _minted-main/default-pyg-prefix.pygstyle
 INPUT _minted-main/default-pyg-prefix.pygstyle
 INPUT _minted-main/default-pyg-prefix.pygstyle
@@ -269,10 +290,10 @@ INPUT _minted-main/default.pygstyle
 INPUT _minted-main/default.pygstyle
 INPUT _minted-main/default.pygstyle
 INPUT ./template.cu
-INPUT _minted-main/B052DEE85D13C1298E35594E670BA58A8C80328F1174B1C5307C2807DC2ECBDD.pygtex
-INPUT _minted-main/B052DEE85D13C1298E35594E670BA58A8C80328F1174B1C5307C2807DC2ECBDD.pygtex
-INPUT _minted-main/B052DEE85D13C1298E35594E670BA58A8C80328F1174B1C5307C2807DC2ECBDD.pygtex
-INPUT _minted-main/B052DEE85D13C1298E35594E670BA58A8C80328F1174B1C5307C2807DC2ECBDD.pygtex
+INPUT _minted-main/87AB25CE812582A16D21D139CF2F1DB19A57BB236B29B4E350057A2200CD3BAF.pygtex
+INPUT _minted-main/87AB25CE812582A16D21D139CF2F1DB19A57BB236B29B4E350057A2200CD3BAF.pygtex
+INPUT _minted-main/87AB25CE812582A16D21D139CF2F1DB19A57BB236B29B4E350057A2200CD3BAF.pygtex
+INPUT _minted-main/87AB25CE812582A16D21D139CF2F1DB19A57BB236B29B4E350057A2200CD3BAF.pygtex
 INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/tfm/public/cm/cmitt10.tfm
 INPUT main.bbl
 INPUT main.bbl

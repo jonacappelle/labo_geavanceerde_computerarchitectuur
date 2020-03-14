@@ -16,7 +16,7 @@
 \PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}helper\PYGZus{}cuda.h\PYGZgt{}}
 \PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}helper\PYGZus{}functions.h\PYGZgt{} // helper functions for SDK examples}
 
-\PYG{c+c1}{// eigen includes}
+\PYG{c+c1}{// own includes}
 \PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}iostream\PYGZdq{}}
 \PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}cstdlib\PYGZdq{}}
 \PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}time.h\PYGZdq{}	// timing on cpu}
@@ -24,8 +24,17 @@
 \PYG{k}{extern} \PYG{l+s}{\PYGZdq{}C\PYGZdq{}}
 \PYG{c+cp}{\PYGZsh{}define ARRAYSIZE 100000000 }\PYG{c+c1}{// Is also the number of threads that will be used}
 
+\PYG{c+c1}{////////////////////////////////////////////////////////////////////////////////}
+\PYG{c+c1}{// SELECT GPU \PYGZhy{} CPU TIMING}
+\PYG{c+c1}{// \PYGZsh{}define GPU}
+\PYG{c+c1}{// \PYGZsh{}define CPU}
+\PYG{c+c1}{////////////////////////////////////////////////////////////////////////////////}
+\PYG{c+c1}{// RUN ADD \PYGZhy{} INV}
+\PYG{c+c1}{// \PYGZsh{}define ADD}
+\PYG{c+c1}{// \PYGZsh{}define INV}
+\PYG{c+c1}{////////////////////////////////////////////////////////////////////////////////}
 
-\PYG{c+c1}{// HELPER FUNCTIONS}
+\PYG{c+c1}{// Helper function}
 \PYG{k+kt}{void} \PYG{n}{init\PYGZus{}array}\PYG{p}{(}\PYG{k+kt}{int} \PYG{o}{*}\PYG{n}{a}\PYG{p}{)}
 \PYG{p}{\PYGZob{}}
 	\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{ARRAYSIZE}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)}
@@ -34,16 +43,15 @@
 	\PYG{p}{\PYGZcb{}}
 \PYG{p}{\PYGZcb{}}
 
-
 \PYG{c+c1}{////////////////////////////////////////////////////////////////////////////////}
 \PYG{c+c1}{// KERNEL ADD}
 \PYG{c+c1}{////////////////////////////////////////////////////////////////////////////////}
 \PYG{k+kt}{int} \PYG{n}{BLOCKSIZE}\PYG{p}{;}
 
 \PYG{c+c1}{// GPU}
-\PYG{n}{\PYGZus{}\PYGZus{}global\PYGZus{}\PYGZus{}} \PYG{k+kt}{void} \PYG{n+nf}{add}\PYG{p}{(}\PYG{k+kt}{int} \PYG{o}{*}\PYG{n}{a}\PYG{p}{,} \PYG{k+kt}{int} \PYG{o}{*}\PYG{n}{b}\PYG{p}{,} \PYG{k+kt}{int} \PYG{o}{*}\PYG{n}{out}\PYG{p}{)}
+\PYG{k+kr}{\PYGZus{}\PYGZus{}global\PYGZus{}\PYGZus{}} \PYG{k+kt}{void} \PYG{n+nf}{add}\PYG{p}{(}\PYG{k+kt}{int} \PYG{o}{*}\PYG{n}{a}\PYG{p}{,} \PYG{k+kt}{int} \PYG{o}{*}\PYG{n}{b}\PYG{p}{,} \PYG{k+kt}{int} \PYG{o}{*}\PYG{n}{out}\PYG{p}{)}
 \PYG{p}{\PYGZob{}}
-	\PYG{k+kt}{int} \PYG{n}{idx} \PYG{o}{=} \PYG{n}{blockIdx}\PYG{p}{.}\PYG{n}{x} \PYG{o}{*} \PYG{n}{blockDim}\PYG{p}{.}\PYG{n}{x} \PYG{o}{+} \PYG{n}{threadIdx}\PYG{p}{.}\PYG{n}{x}\PYG{p}{;}
+	\PYG{k+kt}{int} \PYG{n}{idx} \PYG{o}{=} \PYG{n+nb}{blockIdx}\PYG{p}{.}\PYG{n}{x} \PYG{o}{*} \PYG{n+nb}{blockDim}\PYG{p}{.}\PYG{n}{x} \PYG{o}{+} \PYG{n+nb}{threadIdx}\PYG{p}{.}\PYG{n}{x}\PYG{p}{;}
 	\PYG{k}{if} \PYG{p}{(}\PYG{n}{idx} \PYG{o}{\PYGZlt{}} \PYG{n}{ARRAYSIZE}\PYG{p}{)}
 	\PYG{p}{\PYGZob{}}
 		\PYG{n}{out}\PYG{p}{[}\PYG{n}{idx}\PYG{p}{]} \PYG{o}{=} \PYG{n}{a}\PYG{p}{[}\PYG{n}{idx}\PYG{p}{]} \PYG{o}{+} \PYG{n}{b}\PYG{p}{[}\PYG{n}{idx}\PYG{p}{];}
@@ -64,9 +72,9 @@
 \PYG{c+c1}{////////////////////////////////////////////////////////////////////////////////}
 
 \PYG{c+c1}{// GPU}
-\PYG{n}{\PYGZus{}\PYGZus{}global\PYGZus{}\PYGZus{}} \PYG{k+kt}{void} \PYG{n+nf}{invert}\PYG{p}{(}\PYG{k+kt}{int} \PYG{o}{*}\PYG{n}{a}\PYG{p}{,} \PYG{k+kt}{int} \PYG{o}{*}\PYG{n}{out}\PYG{p}{)}
+\PYG{k+kr}{\PYGZus{}\PYGZus{}global\PYGZus{}\PYGZus{}} \PYG{k+kt}{void} \PYG{n+nf}{invert}\PYG{p}{(}\PYG{k+kt}{int} \PYG{o}{*}\PYG{n}{a}\PYG{p}{,} \PYG{k+kt}{int} \PYG{o}{*}\PYG{n}{out}\PYG{p}{)}
 \PYG{p}{\PYGZob{}}
-	\PYG{k+kt}{int} \PYG{n}{idx} \PYG{o}{=} \PYG{n}{blockIdx}\PYG{p}{.}\PYG{n}{x} \PYG{o}{*} \PYG{n}{blockDim}\PYG{p}{.}\PYG{n}{x} \PYG{o}{+} \PYG{n}{threadIdx}\PYG{p}{.}\PYG{n}{x}\PYG{p}{;}
+	\PYG{k+kt}{int} \PYG{n}{idx} \PYG{o}{=} \PYG{n+nb}{blockIdx}\PYG{p}{.}\PYG{n}{x} \PYG{o}{*} \PYG{n+nb}{blockDim}\PYG{p}{.}\PYG{n}{x} \PYG{o}{+} \PYG{n+nb}{threadIdx}\PYG{p}{.}\PYG{n}{x}\PYG{p}{;}
 	\PYG{k}{if} \PYG{p}{(}\PYG{n}{idx} \PYG{o}{\PYGZlt{}} \PYG{n}{ARRAYSIZE}\PYG{p}{)}
 	\PYG{p}{\PYGZob{}}
 		\PYG{n}{out}\PYG{p}{[}\PYG{n}{idx}\PYG{p}{]} \PYG{o}{=} \PYG{n}{a}\PYG{p}{[}\PYG{n}{ARRAYSIZE} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{1} \PYG{o}{\PYGZhy{}} \PYG{n}{idx}\PYG{p}{];}
@@ -87,109 +95,154 @@
 \PYG{c+c1}{////////////////////////////////////////////////////////////////////////////////}
 \PYG{k+kt}{int} \PYG{n+nf}{main}\PYG{p}{()}
 \PYG{p}{\PYGZob{}}
-
-	\PYG{c+c1}{//declare variables}
+	\PYG{c+c1}{// declare variables}
 	\PYG{k+kt}{int} \PYG{o}{*}\PYG{n}{a\PYGZus{}host}\PYG{p}{,} \PYG{o}{*}\PYG{n}{b\PYGZus{}host}\PYG{p}{,} \PYG{o}{*}\PYG{n}{out\PYGZus{}host}\PYG{p}{;}
 	\PYG{k+kt}{int} \PYG{o}{*}\PYG{n}{a\PYGZus{}dev}\PYG{p}{,} \PYG{o}{*}\PYG{n}{b\PYGZus{}dev}\PYG{p}{,} \PYG{o}{*}\PYG{n}{out\PYGZus{}dev}\PYG{p}{;}
 
-
-	\PYG{c+c1}{//allocate arrays on host}
+	\PYG{c+c1}{// allocate arrays on host}
 	\PYG{n}{a\PYGZus{}host} \PYG{o}{=} \PYG{p}{(}\PYG{k+kt}{int} \PYG{o}{*}\PYG{p}{)}\PYG{n}{malloc}\PYG{p}{(}\PYG{n}{ARRAYSIZE} \PYG{o}{*} \PYG{k}{sizeof}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{));}
-
 	\PYG{n}{b\PYGZus{}host} \PYG{o}{=} \PYG{p}{(}\PYG{k+kt}{int} \PYG{o}{*}\PYG{p}{)}\PYG{n}{malloc}\PYG{p}{(}\PYG{n}{ARRAYSIZE} \PYG{o}{*} \PYG{k}{sizeof}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{));}
 	\PYG{n}{out\PYGZus{}host} \PYG{o}{=} \PYG{p}{(}\PYG{k+kt}{int} \PYG{o}{*}\PYG{p}{)}\PYG{n}{malloc}\PYG{p}{(}\PYG{n}{ARRAYSIZE} \PYG{o}{*} \PYG{k}{sizeof}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{));}
 
+	\PYG{c+c1}{// initialize arrays with zeros}
 	\PYG{n}{init\PYGZus{}array}\PYG{p}{(}\PYG{n}{a\PYGZus{}host}\PYG{p}{);}
 	\PYG{n}{init\PYGZus{}array}\PYG{p}{(}\PYG{n}{b\PYGZus{}host}\PYG{p}{);}
 
-	\PYG{c+c1}{//allocate arrays on device}
+	\PYG{c+c1}{// allocate arrays on device}
 	\PYG{n}{cudaMalloc}\PYG{p}{((}\PYG{k+kt}{void} \PYG{o}{**}\PYG{p}{)}\PYG{o}{\PYGZam{}}\PYG{n}{a\PYGZus{}dev}\PYG{p}{,} \PYG{n}{ARRAYSIZE} \PYG{o}{*} \PYG{k}{sizeof}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{));}
 	\PYG{n}{cudaMalloc}\PYG{p}{((}\PYG{k+kt}{void} \PYG{o}{**}\PYG{p}{)}\PYG{o}{\PYGZam{}}\PYG{n}{b\PYGZus{}dev}\PYG{p}{,} \PYG{n}{ARRAYSIZE} \PYG{o}{*} \PYG{k}{sizeof}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{));}
 	\PYG{n}{cudaMalloc}\PYG{p}{((}\PYG{k+kt}{void} \PYG{o}{**}\PYG{p}{)}\PYG{o}{\PYGZam{}}\PYG{n}{out\PYGZus{}dev}\PYG{p}{,} \PYG{n}{ARRAYSIZE} \PYG{o}{*} \PYG{k}{sizeof}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{));}
 
+	\PYG{c+c1}{// Record time on GPU with cuda events }
+\PYG{c+cp}{\PYGZsh{}ifdef GPU}
 	\PYG{n}{cudaEvent\PYGZus{}t} \PYG{n}{start}\PYG{p}{,} \PYG{n}{stop}\PYG{p}{;}
 	\PYG{n}{cudaEventCreate}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{start}\PYG{p}{);}
 	\PYG{n}{cudaEventCreate}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{stop}\PYG{p}{);}
+\PYG{c+cp}{\PYGZsh{}endif}
 
 	\PYG{c+c1}{// Timer on CPU}
-\PYG{c+c1}{//	clock\PYGZus{}t start, end;}
-\PYG{c+c1}{//	double cpu\PYGZus{}time\PYGZus{}used;}
+\PYG{c+cp}{\PYGZsh{}ifdef CPU}
+	\PYG{k+kt}{clock\PYGZus{}t} \PYG{n}{start}\PYG{p}{,} \PYG{n}{end}\PYG{p}{;}
+	\PYG{k+kt}{double} \PYG{n}{cpu\PYGZus{}time\PYGZus{}used}\PYG{p}{;}
+\PYG{c+cp}{\PYGZsh{}endif}
 
-\PYG{c+c1}{//	 Initialize data file where the timing results will be stored}
-	 \PYG{k+kt}{FILE} \PYG{o}{*}\PYG{n}{f} \PYG{o}{=} \PYG{n}{fopen}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}data.csv\PYGZdq{}}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}w\PYGZdq{}}\PYG{p}{);}
+	\PYG{c+c1}{// Initialize data file where the timing results will be stored}
+	\PYG{k+kt}{FILE} \PYG{o}{*}\PYG{n}{f} \PYG{o}{=} \PYG{n}{fopen}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}data.csv\PYGZdq{}}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}w\PYGZdq{}}\PYG{p}{);}
 
+\PYG{c+cp}{\PYGZsh{}ifdef GPU}
 	\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{BLOCKSIZE} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{;} \PYG{n}{BLOCKSIZE} \PYG{o}{\PYGZlt{}} \PYG{l+m+mi}{300}\PYG{p}{;} \PYG{n}{BLOCKSIZE}\PYG{o}{++}\PYG{p}{)}
 	\PYG{p}{\PYGZob{}}
+\PYG{c+cp}{\PYGZsh{}endif}
+
+\PYG{c+cp}{\PYGZsh{}ifdef CPU}
 		\PYG{k+kt}{float} \PYG{n}{millis} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{c+cp}{\PYGZsh{}endif}
+
 		\PYG{c+c1}{// Calculate amount of blocks needed}
 		\PYG{k+kt}{int} \PYG{n}{nBlocks} \PYG{o}{=} \PYG{n}{ARRAYSIZE} \PYG{o}{/} \PYG{n}{BLOCKSIZE} \PYG{o}{+} \PYG{p}{(}\PYG{n}{ARRAYSIZE} \PYG{o}{\PYGZpc{}} \PYG{n}{BLOCKSIZE} \PYG{o}{==} \PYG{l+m+mi}{0} \PYG{o}{?} \PYG{l+m+mi}{0} \PYG{o}{:} \PYG{l+m+mi}{1}\PYG{p}{);}
 		\PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Nblocks: \PYGZpc{}i\PYGZdq{}}\PYG{p}{,} \PYG{n}{nBlocks}\PYG{p}{);}
 
 		\PYG{c+c1}{// Start timer}
+\PYG{c+cp}{\PYGZsh{}ifdef CPU}
 		\PYG{n}{StopWatchInterface} \PYG{o}{*}\PYG{n}{timer} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
 		\PYG{n}{sdkCreateTimer}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{timer}\PYG{p}{);}
 		\PYG{n}{sdkStartTimer}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{timer}\PYG{p}{);}
-\PYG{c+c1}{//		cudaEventRecord(start);}
+\PYG{c+cp}{\PYGZsh{}endif}
+
+\PYG{c+cp}{\PYGZsh{}ifdef GPU }\PYG{c+c1}{// Start cuda event on GPU}
+		\PYG{n}{cudaEventRecord}\PYG{p}{(}\PYG{n}{start}\PYG{p}{);}
+\PYG{c+cp}{\PYGZsh{}endif}
+
 		\PYG{c+c1}{//Step 1: Copy data to GPU memory}
 		\PYG{n}{cudaMemcpy}\PYG{p}{(}\PYG{n}{a\PYGZus{}dev}\PYG{p}{,} \PYG{n}{a\PYGZus{}host}\PYG{p}{,} \PYG{n}{ARRAYSIZE} \PYG{o}{*} \PYG{k}{sizeof}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{),} \PYG{n}{cudaMemcpyHostToDevice}\PYG{p}{);}
 		\PYG{n}{cudaMemcpy}\PYG{p}{(}\PYG{n}{b\PYGZus{}dev}\PYG{p}{,} \PYG{n}{b\PYGZus{}host}\PYG{p}{,} \PYG{n}{ARRAYSIZE} \PYG{o}{*} \PYG{k}{sizeof}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{),} \PYG{n}{cudaMemcpyHostToDevice}\PYG{p}{);}
 		\PYG{n}{cudaMemcpy}\PYG{p}{(}\PYG{n}{out\PYGZus{}dev}\PYG{p}{,} \PYG{n}{out\PYGZus{}host}\PYG{p}{,} \PYG{n}{ARRAYSIZE} \PYG{o}{*} \PYG{k}{sizeof}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{),} \PYG{n}{cudaMemcpyHostToDevice}\PYG{p}{);}
 
 		\PYG{c+c1}{////////////////////////////////////////////////////////////////////////////////}
-		\PYG{c+c1}{// GPU \PYGZhy{}\PYGZhy{} comment / uncomment to run \PYGZsq{}ADD\PYGZsq{} / \PYGZsq{}INVERT\PYGZsq{}}
+		\PYG{c+c1}{// GPU \PYGZhy{}\PYGZhy{} define ADD \PYGZhy{} INV to run}
 		\PYG{c+c1}{////////////////////////////////////////////////////////////////////////////////}
-
-\PYG{c+c1}{//		add\PYGZlt{}\PYGZlt{}\PYGZlt{}nBlocks, BLOCKSIZE\PYGZgt{}\PYGZgt{}\PYGZgt{}(a\PYGZus{}dev, b\PYGZus{}dev, out\PYGZus{}dev);}
+\PYG{c+cp}{\PYGZsh{}ifdef ADD \PYGZam{}\PYGZam{} GPU}
+		\PYG{n}{add}\PYG{o}{\PYGZlt{}\PYGZlt{}\PYGZlt{}}\PYG{n}{nBlocks}\PYG{p}{,} \PYG{n}{BLOCKSIZE}\PYG{o}{\PYGZgt{}\PYGZgt{}\PYGZgt{}}\PYG{p}{(}\PYG{n}{a\PYGZus{}dev}\PYG{p}{,} \PYG{n}{b\PYGZus{}dev}\PYG{p}{,} \PYG{n}{out\PYGZus{}dev}\PYG{p}{);}
+\PYG{c+cp}{\PYGZsh{}endif}
+\PYG{c+cp}{\PYGZsh{}ifdef INV \PYGZam{}\PYGZam{} GPU}
 		\PYG{n}{invert} \PYG{o}{\PYGZlt{}\PYGZlt{}\PYGZlt{}} \PYG{n}{nBlocks}\PYG{p}{,} \PYG{n}{BLOCKSIZE} \PYG{o}{\PYGZgt{}\PYGZgt{}\PYGZgt{}} \PYG{p}{(} \PYG{n}{a\PYGZus{}dev}\PYG{p}{,} \PYG{n}{out\PYGZus{}dev} \PYG{p}{);}
-\PYG{c+c1}{//		cudaEventRecord(stop);}
+\PYG{c+cp}{\PYGZsh{}endif}
+
+\PYG{c+cp}{\PYGZsh{}ifdef GPU }\PYG{c+c1}{// Stop GPU event timer}
+		\PYG{n}{cudaEventRecord}\PYG{p}{(}\PYG{n}{stop}\PYG{p}{);}
+\PYG{c+cp}{\PYGZsh{}endif}
 
 		\PYG{c+c1}{////////////////////////////////////////////////////////////////////////////////}
-		\PYG{c+c1}{// CPU \PYGZhy{}\PYGZhy{} comment / uncomment to run \PYGZsq{}ADD\PYGZsq{} / \PYGZsq{}INVERT\PYGZsq{}}
+		\PYG{c+c1}{// CPU \PYGZhy{}\PYGZhy{} define ADD \PYGZhy{} INV to run}
 		\PYG{c+c1}{////////////////////////////////////////////////////////////////////////////////}
+\PYG{c+cp}{\PYGZsh{}ifdef CPU }\PYG{c+c1}{// CPU timer}
+		\PYG{n}{start} \PYG{o}{=} \PYG{n}{clock}\PYG{p}{();}
+\PYG{c+cp}{\PYGZsh{}endif}
 
-\PYG{c+c1}{//		start = clock();}
-\PYG{c+c1}{//		cpu\PYGZus{}add( a\PYGZus{}host, b\PYGZus{}host, out\PYGZus{}host);}
-\PYG{c+c1}{//		cpu\PYGZus{}invert ( a\PYGZus{}host, out\PYGZus{}host );}
-\PYG{c+c1}{//		end = clock();}
-\PYG{c+c1}{//		cpu\PYGZus{}time\PYGZus{}used = ((double) (end \PYGZhy{} start)) / CLOCKS\PYGZus{}PER\PYGZus{}SEC;}
-\PYG{c+c1}{//		printf(\PYGZdq{}\PYGZpc{}f\PYGZdq{}, cpu\PYGZus{}time\PYGZus{}used);}
+\PYG{c+cp}{\PYGZsh{}ifdef ADD \PYGZam{}\PYGZam{} CPU}
+		\PYG{n}{cpu\PYGZus{}add}\PYG{p}{(} \PYG{n}{a\PYGZus{}host}\PYG{p}{,} \PYG{n}{b\PYGZus{}host}\PYG{p}{,} \PYG{n}{out\PYGZus{}host}\PYG{p}{);}
+\PYG{c+cp}{\PYGZsh{}endif}
+\PYG{c+cp}{\PYGZsh{}ifdef INV \PYGZam{}\PYGZam{} CPU}
+		\PYG{n}{cpu\PYGZus{}invert} \PYG{p}{(} \PYG{n}{a\PYGZus{}host}\PYG{p}{,} \PYG{n}{out\PYGZus{}host} \PYG{p}{);}
+\PYG{c+cp}{\PYGZsh{}endif}
+
+\PYG{c+cp}{\PYGZsh{}ifdef CPU}
+		\PYG{n}{end} \PYG{o}{=} \PYG{n}{clock}\PYG{p}{();}
+		\PYG{n}{cpu\PYGZus{}time\PYGZus{}used} \PYG{o}{=} \PYG{p}{((}\PYG{k+kt}{double}\PYG{p}{)} \PYG{p}{(}\PYG{n}{end} \PYG{o}{\PYGZhy{}} \PYG{n}{start}\PYG{p}{))} \PYG{o}{/} \PYG{n}{CLOCKS\PYGZus{}PER\PYGZus{}SEC}\PYG{p}{;}
+		\PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZpc{}f\PYGZdq{}}\PYG{p}{,} \PYG{n}{cpu\PYGZus{}time\PYGZus{}used}\PYG{p}{);}
+\PYG{c+cp}{\PYGZsh{}endif}
 
 		\PYG{c+c1}{//Step 4: Retrieve result}
 		\PYG{n}{cudaMemcpy}\PYG{p}{(}\PYG{n}{a\PYGZus{}host}\PYG{p}{,} \PYG{n}{a\PYGZus{}dev}\PYG{p}{,} \PYG{n}{ARRAYSIZE} \PYG{o}{*} \PYG{k}{sizeof}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{),} \PYG{n}{cudaMemcpyDeviceToHost}\PYG{p}{);}
 		\PYG{n}{cudaMemcpy}\PYG{p}{(}\PYG{n}{b\PYGZus{}host}\PYG{p}{,} \PYG{n}{b\PYGZus{}dev}\PYG{p}{,} \PYG{n}{ARRAYSIZE} \PYG{o}{*} \PYG{k}{sizeof}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{),} \PYG{n}{cudaMemcpyDeviceToHost}\PYG{p}{);}
 		\PYG{n}{cudaMemcpy}\PYG{p}{(}\PYG{n}{out\PYGZus{}host}\PYG{p}{,} \PYG{n}{out\PYGZus{}dev}\PYG{p}{,} \PYG{n}{ARRAYSIZE} \PYG{o}{*} \PYG{k}{sizeof}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{),} \PYG{n}{cudaMemcpyDeviceToHost}\PYG{p}{);}
 
-\PYG{c+c1}{//		cudaEventSynchronize(stop);}
-\PYG{c+c1}{//		cudaEventElapsedTime(\PYGZam{}millis, start, stop);}
+\PYG{c+cp}{\PYGZsh{}ifdef GPU}
+		\PYG{n}{cudaEventSynchronize}\PYG{p}{(}\PYG{n}{stop}\PYG{p}{);}
+		\PYG{n}{cudaEventElapsedTime}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{millis}\PYG{p}{,} \PYG{n}{start}\PYG{p}{,} \PYG{n}{stop}\PYG{p}{);}
+\PYG{c+cp}{\PYGZsh{}endif}
 
-		\PYG{c+c1}{// Stop timer}
+\PYG{c+cp}{\PYGZsh{}ifdef CPU	}\PYG{c+c1}{// Stop timer}
 		\PYG{n}{sdkStopTimer}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{timer}\PYG{p}{);}
+\PYG{c+cp}{\PYGZsh{}endif}
 
 		\PYG{c+c1}{// Print time to console}
+\PYG{c+cp}{\PYGZsh{}ifdef CPU}
 		\PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Processing time: \PYGZpc{}f (ms)}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,} \PYG{n}{sdkGetTimerValue}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{timer}\PYG{p}{));}
-\PYG{c+c1}{//		printf(\PYGZdq{}Processing time: \PYGZpc{}f (ms)\PYGZbs{}n\PYGZdq{}, millis);}
+\PYG{c+cp}{\PYGZsh{}endif}
+\PYG{c+cp}{\PYGZsh{}ifdef GPU}
+		\PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Processing time: \PYGZpc{}f (ms)}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,} \PYG{n}{millis}\PYG{p}{);}
+\PYG{c+cp}{\PYGZsh{}endif}
 
 		\PYG{c+c1}{// Write timing results to file}
-		\PYG{n}{fprintf}\PYG{p}{(}\PYG{n}{f}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}\PYGZpc{}d,\PYGZpc{}f}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,} \PYG{n}{BLOCKSIZE}\PYG{p}{,} \PYG{n}{sdkGetTimerValue}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{timer}\PYG{p}{));}
-\PYG{c+c1}{//		fprintf(f, \PYGZdq{}\PYGZpc{}f\PYGZbs{}n\PYGZdq{}, sdkGetTimerValue(\PYGZam{}timer));}
-\PYG{c+c1}{//		fprintf(f, \PYGZdq{}\PYGZpc{}d,\PYGZpc{}f\PYGZbs{}n\PYGZdq{}, BLOCKSIZE, millis);}
+\PYG{c+cp}{\PYGZsh{}ifdef CPU}
+		\PYG{n}{fprintf}\PYG{p}{(}\PYG{n}{f}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}\PYGZpc{}f}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,} \PYG{n}{sdkGetTimerValue}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{timer}\PYG{p}{));}
+\PYG{c+cp}{\PYGZsh{}endif}
+\PYG{c+cp}{\PYGZsh{}ifdef GPU}
+		\PYG{n}{fprintf}\PYG{p}{(}\PYG{n}{f}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}\PYGZpc{}d,\PYGZpc{}f}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,} \PYG{n}{BLOCKSIZE}\PYG{p}{,} \PYG{n}{millis}\PYG{p}{);}
+\PYG{c+cp}{\PYGZsh{}endif}
 
-		\PYG{c+c1}{// Verwijder timer}
+\PYG{c+cp}{\PYGZsh{}ifdef CPU	}\PYG{c+c1}{// Verwijder timer}
 		\PYG{n}{sdkDeleteTimer}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{timer}\PYG{p}{);}
+\PYG{c+cp}{\PYGZsh{}endif}
 
+\PYG{c+cp}{\PYGZsh{}ifdef GPU}
 	\PYG{p}{\PYGZcb{}} \PYG{c+c1}{//End for}
+\PYG{c+cp}{\PYGZsh{}endif}
 
 	\PYG{c+c1}{// Close the file}
 	\PYG{n}{fclose}\PYG{p}{(}\PYG{n}{f}\PYG{p}{);}
-
 
 	\PYG{c+c1}{// Free up the used memory}
 	\PYG{n}{free}\PYG{p}{(}\PYG{n}{a\PYGZus{}host}\PYG{p}{);}
 	\PYG{n}{free}\PYG{p}{(}\PYG{n}{b\PYGZus{}host}\PYG{p}{);}
 	\PYG{n}{free}\PYG{p}{(}\PYG{n}{out\PYGZus{}host}\PYG{p}{);}
+
+\PYG{c+cp}{\PYGZsh{}ifdef GPU }\PYG{c+c1}{// Free up the cuda memory}
 	\PYG{n}{cudaFree}\PYG{p}{(}\PYG{n}{a\PYGZus{}dev}\PYG{p}{);}
 	\PYG{n}{cudaFree}\PYG{p}{(}\PYG{n}{b\PYGZus{}dev}\PYG{p}{);}
 	\PYG{n}{cudaFree}\PYG{p}{(}\PYG{n}{out\PYGZus{}dev}\PYG{p}{);}
+\PYG{c+cp}{\PYGZsh{}endif}
 
 	\PYG{k}{return} \PYG{l+m+mi}{0}\PYG{p}{;}
 \PYG{p}{\PYGZcb{}}

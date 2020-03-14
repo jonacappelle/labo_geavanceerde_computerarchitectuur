@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.11.28)  9 MAR 2020 16:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.11.28)  14 MAR 2020 20:31
 entering extended mode
 **"e:/GOOGLE_DRIVE/SCHOOL 2019-2020/Geavanceerde computerarchitectuur/Labo/ADD_INV_Verslag/main.tex"
 ("e:/GOOGLE_DRIVE/SCHOOL 2019-2020/Geavanceerde computerarchitectuur/Labo/ADD_INV_Verslag/main.tex"
@@ -640,7 +640,7 @@ runsystem(if not exist _minted-main mkdir _minted-main)...executed.
 \glo@main@file=\write7
 \openout7 = `main.glo'.
 
-Package glossaries Info: Writing glossary file main.glo on input line 44.
+Package glossaries Info: Writing glossary file main.glo on input line 32.
 runsystem(for ^%i in (pygmentize.exe pygmentize.bat pygmentize.cmd) do set > main.aex <nul: /p x=^%~$PATH:i>> main.aex)...executed.
 
 runsystem(del main.aex)...executed.
@@ -648,18 +648,18 @@ runsystem(del main.aex)...executed.
  (main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -800,7 +800,7 @@ Package grfext Info: Graphics extension search list:
 )
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
-(lastpage)             ! on input line 81.
+(lastpage)             ! on input line 69.
 *geometry* verbose mode - [ newgeometry ] result:
 * driver: pdftex
 * paper: a4paper
@@ -837,7 +837,7 @@ Package lastpage Info: Please have a look at the pageslts package at
 <logo_kuleuven.png, id=1, 186.6975pt x 317.185pt>
 File: logo_kuleuven.png Graphic file (type png)
 <use logo_kuleuven.png>
-Package pdftex.def Info: logo_kuleuven.png  used on input line 89.
+Package pdftex.def Info: logo_kuleuven.png  used on input line 77.
 (pdftex.def)             Requested size: 54.37502pt x 92.37814pt.
  [1
 
@@ -850,13 +850,45 @@ Package pdftex.def Info: logo_kuleuven.png  used on input line 89.
 \tf@toc=\write8
 \openout8 = `main.toc'.
 
+ (main.lof)
+\tf@lof=\write9
+\openout9 = `main.lof'.
+
+ (main.lot)
+\tf@lot=\write10
+\openout10 = `main.lot'.
+
  (main.lol)
-\tf@lol=\write9
-\openout9 = `main.lol'.
+\tf@lol=\write11
+\openout11 = `main.lol'.
 
  [1
 
-] (_minted-main/default-pyg-prefix.pygstyle) (_minted-main/default.pygstyle) (_minted-main/B052DEE85D13C1298E35594E670BA58A8C80328F1174B1C5307C2807DC2ECBDD.pygtex
+]
+<gpu-devotes-more-transistors-to-data-processing.png, id=20, 324.46219pt x 105.39375pt>
+File: gpu-devotes-more-transistors-to-data-processing.png Graphic file (type png)
+<use gpu-devotes-more-transistors-to-data-processing.png>
+Package pdftex.def Info: gpu-devotes-more-transistors-to-data-processing.png  used on input line 125.
+(pdftex.def)             Requested size: 227.12196pt x 73.7751pt.
+<grid-of-thread-blocks.png, id=21, 324.46219pt x 281.55188pt>
+File: grid-of-thread-blocks.png Graphic file (type png)
+<use grid-of-thread-blocks.png>
+Package pdftex.def Info: grid-of-thread-blocks.png  used on input line 135.
+(pdftex.def)             Requested size: 194.6788pt x 168.93242pt.
+<flowchart_inv_add.pdf, id=22, 531.90718pt x 666.57025pt>
+File: flowchart_inv_add.pdf Graphic file (type pdf)
+<use flowchart_inv_add.pdf>
+Package pdftex.def Info: flowchart_inv_add.pdf  used on input line 158.
+(pdftex.def)             Requested size: 418.25368pt x 524.16402pt.
+ [2
+
+ <./gpu-devotes-more-transistors-to-data-processing.png> <./grid-of-thread-blocks.png>]
+Overfull \vbox (7.93933pt too high) has occurred while \output is active []
+
+ [3 <./flowchart_inv_add.pdf
+
+pdfTeX warning: pdflatex (file ./flowchart_inv_add.pdf): PDF inclusion: invalid other resource which is no dict (key 'ProcSets', type <array>); ignored.
+>] [4] (_minted-main/default-pyg-prefix.pygstyle) (_minted-main/default.pygstyle) (_minted-main/87AB25CE812582A16D21D139CF2F1DB19A57BB236B29B4E350057A2200CD3BAF.pygtex
 Overfull \hbox (3.47878pt too wide) in paragraph at lines 2--2
 | | | |[]\OT1/cmtt/m/it/10 ////////////////////////////////////////////////////////////////////////////////[]|  
  []
@@ -869,73 +901,88 @@ Overfull \hbox (3.47878pt too wide) in paragraph at lines 4--4
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10> not available
 (Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 24.
 
-Overfull \hbox (3.47878pt too wide) in paragraph at lines 38--38
+Overfull \hbox (3.47878pt too wide) in paragraph at lines 27--27
 | | | |[]\OT1/cmtt/m/it/10 ////////////////////////////////////////////////////////////////////////////////[]|  
  []
 
 
-Overfull \hbox (3.47878pt too wide) in paragraph at lines 40--40
-| | | |[]\OT1/cmtt/m/it/10 ////////////////////////////////////////////////////////////////////////////////[]|  
- []
-
-[2
-
-]
-Overfull \hbox (3.47878pt too wide) in paragraph at lines 62--62
+Overfull \hbox (3.47878pt too wide) in paragraph at lines 31--31
 | | | |[]\OT1/cmtt/m/it/10 ////////////////////////////////////////////////////////////////////////////////[]|  
  []
 
 
-Overfull \hbox (3.47878pt too wide) in paragraph at lines 64--64
+Overfull \hbox (3.47878pt too wide) in paragraph at lines 35--35
 | | | |[]\OT1/cmtt/m/it/10 ////////////////////////////////////////////////////////////////////////////////[]|  
  []
 
 
-Overfull \hbox (3.47878pt too wide) in paragraph at lines 85--85
+Overfull \hbox (3.47878pt too wide) in paragraph at lines 46--46
 | | | |[]\OT1/cmtt/m/it/10 ////////////////////////////////////////////////////////////////////////////////[]|  
  []
 
 
-Overfull \hbox (3.47878pt too wide) in paragraph at lines 87--87
+Overfull \hbox (3.47878pt too wide) in paragraph at lines 48--48
+| | | |[]\OT1/cmtt/m/it/10 ////////////////////////////////////////////////////////////////////////////////[]|  
+ []
+
+
+Underfull \vbox (badness 6876) has occurred while \output is active []
+
+ [5]
+Overfull \hbox (3.47878pt too wide) in paragraph at lines 70--70
+| | | |[]\OT1/cmtt/m/it/10 ////////////////////////////////////////////////////////////////////////////////[]|  
+ []
+
+
+Overfull \hbox (3.47878pt too wide) in paragraph at lines 72--72
+| | | |[]\OT1/cmtt/m/it/10 ////////////////////////////////////////////////////////////////////////////////[]|  
+ []
+
+
+Overfull \hbox (3.47878pt too wide) in paragraph at lines 93--93
+| | | |[]\OT1/cmtt/m/it/10 ////////////////////////////////////////////////////////////////////////////////[]|  
+ []
+
+
+Overfull \hbox (3.47878pt too wide) in paragraph at lines 95--95
 | | | |[]\OT1/cmtt/m/it/10 ////////////////////////////////////////////////////////////////////////////////[]|  
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [3]
-Overfull \hbox (87.47804pt too wide) in paragraph at lines 138--138
+ [6]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [7]
+Overfull \hbox (87.47804pt too wide) in paragraph at lines 161--161
 | | | |[][][]\OT1/cmtt/m/it/10 ////////////////////////////////////////////////////////////////////////////////[]|  
  []
 
 
-Overfull \hbox (87.47804pt too wide) in paragraph at lines 140--140
+Overfull \hbox (87.47804pt too wide) in paragraph at lines 163--163
+| | | |[][][]\OT1/cmtt/m/it/10 ////////////////////////////////////////////////////////////////////////////////[]|  
+ []
+
+
+Overfull \hbox (87.47804pt too wide) in paragraph at lines 175--175
+| | | |[][][]\OT1/cmtt/m/it/10 ////////////////////////////////////////////////////////////////////////////////[]|  
+ []
+
+
+Overfull \hbox (87.47804pt too wide) in paragraph at lines 177--177
 | | | |[][][]\OT1/cmtt/m/it/10 ////////////////////////////////////////////////////////////////////////////////[]|  
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [4]
-Overfull \hbox (87.47804pt too wide) in paragraph at lines 146--146
-| | | |[][][]\OT1/cmtt/m/it/10 ////////////////////////////////////////////////////////////////////////////////[]|  
- []
-
-
-Overfull \hbox (87.47804pt too wide) in paragraph at lines 148--148
-| | | |[][][]\OT1/cmtt/m/it/10 ////////////////////////////////////////////////////////////////////////////////[]|  
- []
-
-
+ [8]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [5]) [6] (main.bbl
-
-Package natbib Warning: Empty `thebibliography' environment on input line 3.
-
-) 
+ [9]) [10] (main.bbl) 
 AED: lastpage setting LastPage
-[7
+[11
 
 ]
 
@@ -945,17 +992,17 @@ This document will not have a glossary.
 
 (main.aux) ) 
 Here is how much of TeX's memory you used:
- 24253 strings out of 492970
- 476174 string characters out of 3126593
- 612982 words of memory out of 3000000
- 27833 multiletter control sequences out of 15000+200000
- 541003 words of font info for 57 fonts, out of 3000000 for 9000
+ 24294 strings out of 492970
+ 477309 string characters out of 3126593
+ 613074 words of memory out of 3000000
+ 27865 multiletter control sequences out of 15000+200000
+ 541310 words of font info for 58 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 46i,11n,63p,2253b,512s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 46i,11n,63p,2253b,514s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmitt10.pfb><C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on main.pdf (9 pages, 178729 bytes).
+Output written on main.pdf (13 pages, 234212 bytes).
 PDF statistics:
- 82 PDF objects out of 1000 (max. 8388607)
+ 107 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

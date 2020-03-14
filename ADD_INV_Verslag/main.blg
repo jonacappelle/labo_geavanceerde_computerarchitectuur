@@ -1,5 +1,9 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: main.aux
-The style file: apalike.bst
-I found no \citation commands---while reading file main.aux
+The style file: IEEEtranN.bst
 Database file #1: bib.bib
-(There was 1 error message)
+-- IEEEtranN.bst version 1.14 (2015/08/26) by Michael Shell.
+-- http://www.michaelshell.org/tex/ieeetran/bibtex/
+-- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+** Natbib version - not for normal IEEE work.
+
+Done.
