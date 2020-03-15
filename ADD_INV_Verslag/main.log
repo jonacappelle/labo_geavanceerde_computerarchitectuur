@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.11.28)  14 MAR 2020 21:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.11.28)  15 MAR 2020 09:42
 entering extended mode
 **"e:/GOOGLE_DRIVE/SCHOOL 2019-2020/Geavanceerde computerarchitectuur/Labo/ADD_INV_Verslag/main.tex"
 ("e:/GOOGLE_DRIVE/SCHOOL 2019-2020/Geavanceerde computerarchitectuur/Labo/ADD_INV_Verslag/main.tex"
@@ -781,17 +781,7 @@ runsystem(for ^%i in (pygmentize.exe pygmentize.bat pygmentize.cmd) do set > mai
 
 runsystem(del main.aex)...executed.
 
- (main.aux
-
-LaTeX Warning: Label `' multiply defined.
-
-
-LaTeX Warning: Label `' multiply defined.
-
-
-LaTeX Warning: Label `' multiply defined.
-
-)
+ (main.aux)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 69.
@@ -1001,14 +991,6 @@ Package pdftex.def Info: logo_kuleuven.png  used on input line 77.
 \tf@lof=\write10
 \openout10 = `main.lof'.
 
- (main.lot)
-\tf@lot=\write11
-\openout11 = `main.lot'.
-
- (main.lol)
-\tf@lol=\write12
-\openout12 = `main.lol'.
-
  [1
 
 ]
@@ -1035,7 +1017,11 @@ Overfull \vbox (7.93933pt too high) has occurred while \output is active []
  [3 <./flowchart_inv_add.pdf
 
 pdfTeX warning: pdflatex (file ./flowchart_inv_add.pdf): PDF inclusion: invalid other resource which is no dict (key 'ProcSets', type <array>); ignored.
->] (graphs/ADD_gpu_with_memcopy_10mil_goed.pgf
+>]
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 184.
+ ("C:\Users\jonac\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\ts1cmr.fd"
+File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+) [4] [5] (graphs/ADD_gpu_with_memcopy_10mil_goed.pgf
 LaTeX Font Info:    Calculating math sizes for size <11> on input line 103.
 
 
@@ -1058,13 +1044,10 @@ LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <5.5> not available
 LaTeX Font Warning: Font shape `OT1/cmtt/m/n' in size <5.5> not available
 (Font)              size <5> substituted on input line 103.
 
-) (graphs/ADD_gpu_without_memcopy_10mil.pgf)
+) (graphs/ADD_gpu_without_memcopy_10mil.pgf) (graphs/INV_gpu_with_memcopy_100mil.pgf)
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [4] (graphs/INV_gpu_with_memcopy_100mil.pgf) (graphs/INV_gpu_without_memcopy_100mil.pgf)
-Underfull \vbox (badness 1102) has occurred while \output is active []
-
- [5] [6] [7] (_minted-main/default-pyg-prefix.pygstyle) (_minted-main/default.pygstyle) (_minted-main/87AB25CE812582A16D21D139CF2F1DB19A57BB236B29B4E350057A2200CD3BAF.pygtex
+ [6] (graphs/INV_gpu_without_memcopy_100mil.pgf) [7] (_minted-main/default-pyg-prefix.pygstyle) (_minted-main/default.pygstyle) (_minted-main/87AB25CE812582A16D21D139CF2F1DB19A57BB236B29B4E350057A2200CD3BAF.pygtex
 Overfull \hbox (3.47878pt too wide) in paragraph at lines 2--2
 | | | |[]\OT1/cmtt/m/it/10 ////////////////////////////////////////////////////////////////////////////////[]|  
  []
@@ -1171,22 +1154,19 @@ This document will not have a glossary.
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.5pt have occurred.
 
-
-LaTeX Warning: There were multiply-defined labels.
-
  ) 
 Here is how much of TeX's memory you used:
- 31373 strings out of 492970
- 630708 string characters out of 3126593
- 1077734 words of memory out of 3000000
- 34764 multiletter control sequences out of 15000+200000
- 543377 words of font info for 66 fonts, out of 3000000 for 9000
+ 31397 strings out of 492970
+ 631621 string characters out of 3126593
+ 1006349 words of memory out of 3000000
+ 34788 multiletter control sequences out of 15000+200000
+ 544390 words of font info for 69 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 48i,11n,63p,2253b,515s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmitt10.pfb><C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on main.pdf (16 pages, 255399 bytes).
+ 48i,15n,63p,2253b,695s stack positions out of 5000i,500n,10000p,200000b,50000s
+ <C:\Users\jonac\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1000.pk><C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmitt10.pfb><C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on main.pdf (16 pages, 273987 bytes).
 PDF statistics:
- 119 PDF objects out of 1000 (max. 8388607)
+ 132 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  33 words of extra memory for PDF output out of 10000 (max. 10000000)
 

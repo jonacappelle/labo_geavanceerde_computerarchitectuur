@@ -6,9 +6,10 @@
 \contentsline {section}{\numberline {4}Analyse performantie}{4}
 \contentsline {subsection}{\numberline {4.1}ADD}{4}
 \contentsline {subsubsection}{\numberline {4.1.1}Tijd op GPU}{4}
-\contentsline {subsubsection}{\numberline {4.1.2}Tijd op CPU}{5}
-\contentsline {subsection}{\numberline {4.2}INV}{5}
-\contentsline {subsubsection}{\numberline {4.2.1}Tijd op GPU}{5}
-\contentsline {subsubsection}{\numberline {4.2.2}Tijd op CPU}{6}
-\contentsline {section}{\numberline {5}Besluit}{7}
-\contentsline {section}{\numberline {A}CODE}{8}
+\contentsline {subsubsection}{\numberline {4.1.2}Tijd op CPU}{4}
+\contentsline {subsection}{\numberline {4.2}INV}{4}
+\contentsline {subsubsection}{\numberline {4.2.1}Tijd op GPU}{4}
+\contentsline {subsubsection}{\numberline {4.2.2}Tijd op CPU}{4}
+\contentsline {section}{\numberline {5}Besluit}{5}
+\contentsline {section}{\numberline {A}Grafieken}{6}
+\contentsline {section}{\numberline {B}CODE}{8}

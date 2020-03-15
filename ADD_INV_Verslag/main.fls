@@ -325,12 +325,6 @@ OUTPUT main.toc
 INPUT main.lof
 INPUT main.lof
 OUTPUT main.lof
-INPUT main.lot
-INPUT main.lot
-OUTPUT main.lot
-INPUT main.lol
-INPUT main.lol
-OUTPUT main.lol
 INPUT gpu-devotes-more-transistors-to-data-processing.png
 INPUT ./gpu-devotes-more-transistors-to-data-processing.png
 INPUT ./gpu-devotes-more-transistors-to-data-processing.png
@@ -346,6 +340,11 @@ INPUT flowchart_inv_add.pdf
 INPUT ./flowchart_inv_add.pdf
 INPUT ./flowchart_inv_add.pdf
 INPUT ./flowchart_inv_add.pdf
+INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/tex/latex/base/ts1cmr.fd
+INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/tex/latex/base/ts1cmr.fd
+INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/tfm/jknappen/ec/tcrm1000.tfm
+INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/tfm/jknappen/ec/tcrm0700.tfm
+INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/tfm/jknappen/ec/tcrm0500.tfm
 INPUT graphs/ADD_gpu_with_memcopy_10mil_goed.pgf
 INPUT graphs/ADD_gpu_with_memcopy_10mil_goed.pgf
 INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/tfm/public/cm/cmr10.tfm
@@ -379,6 +378,8 @@ INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/tfm/public/cm/cmitt
 INPUT main.bbl
 INPUT main.bbl
 INPUT main.aux
+INPUT C:/Users/jonac/AppData/Local/MiKTeX/2.9/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1000.pk
+INPUT C:/Users/jonac/AppData/Local/MiKTeX/2.9/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1000.pk
 INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb
@@ -387,6 +388,8 @@ INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfon
 INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmcsc10.pfb
 INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmitt10.pfb
 INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmitt10.pfb
+INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb
+INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb
 INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb
 INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb
 INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb
@@ -399,6 +402,8 @@ INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfon
 INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr5.pfb
 INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb
 INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb
+INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb
+INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy5.pfb
 INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy5.pfb
 INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb
