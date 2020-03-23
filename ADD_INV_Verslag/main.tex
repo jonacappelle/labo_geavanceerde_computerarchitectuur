@@ -142,7 +142,7 @@ Een GPU bestaat uit grids, blocks en threads. Een grid bestaat uit verschillende
 %	PROBLEEMSTELLING
 %----------------------------------------------------------------------------------------
 \section{Probleemstelling}
-We zullen in dit labo twee arrays optellen en een array inverteren. We zullen dit een aantal keren doen. De timing om al deze operaties uit te voeren zal opgenomen worden, dit zowel op de GPU als op de CPU. Hieruit zullen we laten conclusies kunnen trekken. We onderzoeken ook de invloed van de blocksize op de GPU. De operaties op de GPU zullen getimed worden met het kopi\"eren van data naar de GPU en terug en zonder het kopi\"eren van de data.
+We zullen in dit labo twee arrays optellen en een array inverteren. We zullen dit een aantal keren doen. De timing om al deze operaties uit te voeren zal opgenomen worden, dit zowel op de GPU als op de CPU. Hieruit zullen we later conclusies kunnen trekken. We onderzoeken ook de invloed van de blocksize op de GPU. De operaties op de GPU zullen getimed worden met het kopi\"eren van data naar de GPU en terug en zonder het kopi\"eren van de data.
 
 % welke uitdagingen
 % wat wordt er onderzocht
@@ -175,7 +175,7 @@ De volledige cuda code kan u terug vinden in bijlage \ref{code} op pagina \pager
 \subsubsection{Tijd op GPU}
 In bijlage \ref{grafieken} op pagina \pageref{grafieken} zijn grafieken terug te vinden van uitvoeringstijd in functie van het aantal blocks.
 Zie hiervoor figuur \ref{fig:ADD_gpu_with_memcopy_10mil_goed} voor deze met kopi\"eren van de data naar de GPU en figuur \ref{fig:ADD_gpu_without_memcopy_10mil} voor de tijd zonder kopi\"eren van de data.
-We zien dat de snelste GPU tijden rond de \SI{\pm380}{\micro s} liggen met mee copi\"eren van de data naar de GPU. Zonder het copi\"eren van de data bekomen we een resultaat van \SI{\pm25}{\micro s}.
+We zien dat de snelste GPU tijden rond de \SI{\pm380}{\micro s} liggen met mee kopi\"eren van de data naar de GPU. Zonder het kopi\"eren van de data bekomen we een resultaat van \SI{\pm25}{\micro s}.
 
 
 \subsubsection{Tijd op CPU}
@@ -192,7 +192,7 @@ Met een array grootte van 10 000 000 bekomen we op de CPU een tijd van:
 \subsubsection{Tijd op GPU}
 In bijlage \ref{grafieken} op pagina \pageref{grafieken} zijn grafieken terug te vinden van uitvoeringstijd in functie van het aantal blocks.
 Zie hiervoor figuur \ref{fig:INV_gpu_with_memcopy_100mil} voor deze met kopi\"eren van de data naar de GPU en figuur \ref{fig:INV_gpu_without_memcopy_100mil} voor de tijd zonder kopi\"eren van de data.
-We zien dat de snelste GPU tijden rond de \SI{\pm375}{\micro s} liggen met het mee copi\"eren van de data naar de GPU. Zonder het copi\#eren van de data bekomen we een sneller resultaat van \SI{\pm22}{\micro s}.
+We zien dat de snelste GPU tijden rond de \SI{\pm375}{\micro s} liggen met het mee kopi\"eren van de data naar de GPU. Zonder het kopi\"eren van de data bekomen we een sneller resultaat van \SI{\pm22}{\micro s}.
 
 
 \subsubsection{Tijd op CPU}
@@ -205,7 +205,7 @@ Met een array grootte van 100 000 000 bekomen we op de CPU een tijd van:
 
 
 \subsection{Vergelijking}
-Onderstaande tabel \ref{tab:vgl} geeft een duidelijk overzicht van de verschillende tijden op de GPU (met en zonder copi\"eren van de data) en op de CPU.
+Onderstaande tabel \ref{tab:vgl} geeft een duidelijk overzicht van de verschillende tijden op de GPU (met en zonder kopi\"eren van de data) en op de CPU.
 
 % Please add the following required packages to your document preamble:
 % \usepackage{booktabs}
@@ -214,11 +214,11 @@ Onderstaande tabel \ref{tab:vgl} geeft een duidelijk overzicht van de verschille
     \begin{tabular}{@{}lll@{}}
     \toprule
                                       & ADD   & INV   \\ \midrule
-    Tijd GPU (met copi\"eren) [$\mathrm{\mu s}$] & 380   & 375   \\
-    Tijd GPU (zonder copi\"eren) [$\mathrm{\mu s}$]   & 25    & 22    \\
+    Tijd GPU (met kopi\"eren) [$\mathrm{\mu s}$] & 380   & 375   \\
+    Tijd GPU (zonder kopi\"eren) [$\mathrm{\mu s}$]   & 25    & 22    \\
     Tijd CPU [$\mathrm{\mu s}$]                         & 37.12 & 33.33 \\ \bottomrule
     \end{tabular}
-    \caption{Vergelijkende tabel tijden GPU en CPU (met en zonder copi\"eren van de data)}
+    \caption{Vergelijkende tabel tijden GPU en CPU (met en zonder kopi\"eren van de data)}
     \label{tab:vgl}
     \end{table}
 
@@ -232,7 +232,7 @@ Onderstaande tabel \ref{tab:vgl} geeft een duidelijk overzicht van de verschille
 
 Uit bovenstaande tabel \ref{tab:vgl} kunnen we besluiten dat het uitvoeren van een bewerking op de GPU veel sneller kan verlopen dan op een CPU. Dit is net omdat een GPU gebruik kan maken van zeer veel parallele processoren om het rekenwerk te verdelen, terwijl een CPU krachtigere processoren heeft maar het werk meer sequenti\"eel moet werken.
 
-We zien duidelijk dat het kopi\"eren van data van en naar de GPU zeer veel tijd in beslag neemt. Dit weegt echter niet op tegen de prestatieverbetering van het uitvoeren van een parallel algoritme op de GPU. Bij grote workloads wordt het snelheidsverlies door het copi\"eren wordt meer dan goed gemaakt door het sneller berekenen.
+We zien duidelijk dat het kopi\"eren van data van en naar de GPU zeer veel tijd in beslag neemt. Dit weegt echter niet op tegen de prestatieverbetering van het uitvoeren van een parallel algoritme op de GPU. Bij grote workloads wordt het snelheidsverlies door het kopi\"eren wordt meer dan goed gemaakt door het sneller berekenen.
 
 Bij veelvouden van 32 blocks werkt de GPU het snelste. Alle threads in \'e\'en bock steken is zeker niet aan te raden, dit gaf de langste uitvoeringstijd. We zien ook naar mate het aantal blocks stijgt het minder uitmaakt of we met een veelvoud van 32 aan het werken zijn.
 
