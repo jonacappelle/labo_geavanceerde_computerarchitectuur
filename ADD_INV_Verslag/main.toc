@@ -1,3 +1,4 @@
+\babel@toc {dutch}{}
 \contentsline {section}{\numberline {1}Inleiding}{2}
 \contentsline {section}{\numberline {2}Probleemstelling}{2}
 \contentsline {section}{\numberline {3}Oplossing}{3}
@@ -10,6 +11,7 @@
 \contentsline {subsection}{\numberline {4.2}INV}{4}
 \contentsline {subsubsection}{\numberline {4.2.1}Tijd op GPU}{4}
 \contentsline {subsubsection}{\numberline {4.2.2}Tijd op CPU}{4}
+\contentsline {subsection}{\numberline {4.3}Vergelijking}{4}
 \contentsline {section}{\numberline {5}Besluit}{5}
 \contentsline {section}{\numberline {A}Grafieken}{6}
 \contentsline {section}{\numberline {B}CODE}{8}

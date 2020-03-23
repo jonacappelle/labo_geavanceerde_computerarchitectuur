@@ -26,7 +26,8 @@
 % add pygments to your PATH, the command "pip show Pygments" shows where the lib is installed
 % Of course, pdfLaTeX (or whatever engine/format you use) still has to be called with the -shell-escape option.
 \usepackage{pgf}
-
+\usepackage{booktabs}
+\usepackage[dutch]{babel}
 
 \loadglsentries{glossaries.tex}
 \makeglossaries % generate the glossary
@@ -36,7 +37,7 @@
 
 \renewcommand{\labelenumi}{\alph{enumi}.} % Make numbering in the enumerate environment by letter rather than number (e.g. section 6)
 
-\renewcommand{\arraystretch}{1.2} % Increasing the array stretch factor using \renewcommand{\arraystretch}{<factor>} where <factor> is a numeric value
+\renewcommand{\arraystretch}{1.5} % Increasing the array stretch factor using \renewcommand{\arraystretch}{<factor>} where <factor> is a numeric value
 
 %\usepackage{times} % Uncomment to use the Times New Roman font
 
@@ -83,13 +84,13 @@
 
 \begin{center}
 \begin{tabular}{l r}
-Session Date: & January 1, 2017 \\ % Date the experiment was performed
+Sessie Datum: & 9 Maart, 2020 \\ % Date the experiment was performed
 \\
 Partners: &  Jona Cappelle\\ % Partner names
 &  Jonas Bolle\\
-Class: & \class \\
+Klas: & \class \\
 \\
-Instructor: &  Stijn Crul% Instructor/supervisor
+Begeleider: &  Stijn Crul% Instructor/supervisor
 \end{tabular}
 \end{center}
 \vfill
@@ -106,8 +107,8 @@ Instructor: &  Stijn Crul% Instructor/supervisor
 
 \tableofcontents
 \listoffigures
-% \listoftables
-% \listoflistings%
+\listoftables
+% \listoflistings
 \clearpage
 
 %----------------------------------------------------------------------------------------
@@ -127,7 +128,7 @@ De architectuur van een CPU en GPU verschilt drastisch (zie figuur \ref{fig:cpug
     \label{fig:cpugpu}
 \end{figure}
 
-Een GPU bestaat uit grids, blocks en threads. Een grid bestaat uit verschillende blocks, die op zijn beurt bestaat uit verschillende threads. Nu is het aan de programmeur om deze threads op zo'n efficient mogelijke manier te gebruiken.
+Een GPU bestaat uit grids, blocks en threads. Een grid bestaat uit verschillende blocks, die op hun beurt bestaat uit verschillende threads. Nu is het aan de programmeur om deze threads op zo'n effici\"ent mogelijke manier te gebruiken.
 \cite{cudaprogrammingguide}
 
 \begin{figure}[H]
@@ -174,6 +175,7 @@ De volledige cuda code kan u terug vinden in bijlage \ref{code} op pagina \pager
 \subsubsection{Tijd op GPU}
 In bijlage \ref{grafieken} op pagina \pageref{grafieken} zijn grafieken terug te vinden van uitvoeringstijd in functie van het aantal blocks.
 Zie hiervoor figuur \ref{fig:ADD_gpu_with_memcopy_10mil_goed} voor deze met kopi\"eren van de data naar de GPU en figuur \ref{fig:ADD_gpu_without_memcopy_10mil} voor de tijd zonder kopi\"eren van de data.
+We zien dat de snelste GPU tijden rond de \SI{\pm380}{\micro s} liggen met mee copi\"eren van de data naar de GPU. Zonder het copi\"eren van de data bekomen we een resultaat van \SI{\pm25}{\micro s}.
 
 
 \subsubsection{Tijd op CPU}
@@ -190,6 +192,7 @@ Met een array grootte van 10 000 000 bekomen we op de CPU een tijd van:
 \subsubsection{Tijd op GPU}
 In bijlage \ref{grafieken} op pagina \pageref{grafieken} zijn grafieken terug te vinden van uitvoeringstijd in functie van het aantal blocks.
 Zie hiervoor figuur \ref{fig:INV_gpu_with_memcopy_100mil} voor deze met kopi\"eren van de data naar de GPU en figuur \ref{fig:INV_gpu_without_memcopy_100mil} voor de tijd zonder kopi\"eren van de data.
+We zien dat de snelste GPU tijden rond de \SI{\pm375}{\micro s} liggen met het mee copi\"eren van de data naar de GPU. Zonder het copi\#eren van de data bekomen we een sneller resultaat van \SI{\pm22}{\micro s}.
 
 
 \subsubsection{Tijd op CPU}
@@ -199,6 +202,27 @@ Met een array grootte van 100 000 000 bekomen we op de CPU een tijd van:
     \text{Tijd op CPU} \Rightarrow \SI{33.33}{\micro s}
 \end{align*}
 
+
+
+\subsection{Vergelijking}
+Onderstaande tabel \ref{tab:vgl} geeft een duidelijk overzicht van de verschillende tijden op de GPU (met en zonder copi\"eren van de data) en op de CPU.
+
+% Please add the following required packages to your document preamble:
+% \usepackage{booktabs}
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{@{}lll@{}}
+    \toprule
+                                      & ADD   & INV   \\ \midrule
+    Tijd GPU (met copi\"eren) [$\mathrm{\mu s}$] & 380   & 375   \\
+    Tijd GPU (zonder copi\"eren) [$\mathrm{\mu s}$]   & 25    & 22    \\
+    Tijd CPU [$\mathrm{\mu s}$]                         & 37.12 & 33.33 \\ \bottomrule
+    \end{tabular}
+    \caption{Vergelijkende tabel tijden GPU en CPU (met en zonder copi\"eren van de data)}
+    \label{tab:vgl}
+    \end{table}
+
+
 %----------------------------------------------------------------------------------------
 %	BESLUIT
 %----------------------------------------------------------------------------------------
@@ -206,13 +230,15 @@ Met een array grootte van 100 000 000 bekomen we op de CPU een tijd van:
 \section{Besluit}
 % waarom goed / niet goed
 
-We zien duidelijk dat het kopi\"eren van data van en naar de GPU zeer veel tijd in beslag neemt. Dit weegt echter niet op tegen de prestatieverbetering van het uitvoeren van een parallel algoritme op de GPU.
+Uit bovenstaande tabel \ref{tab:vgl} kunnen we besluiten dat het uitvoeren van een bewerking op de GPU veel sneller kan verlopen dan op een CPU. Dit is net omdat een GPU gebruik kan maken van zeer veel parallele processoren om het rekenwerk te verdelen, terwijl een CPU krachtigere processoren heeft maar het werk meer sequenti\"eel moet werken.
+
+We zien duidelijk dat het kopi\"eren van data van en naar de GPU zeer veel tijd in beslag neemt. Dit weegt echter niet op tegen de prestatieverbetering van het uitvoeren van een parallel algoritme op de GPU. Bij grote workloads wordt het snelheidsverlies door het copi\"eren wordt meer dan goed gemaakt door het sneller berekenen.
 
 Bij veelvouden van 32 blocks werkt de GPU het snelste. Alle threads in \'e\'en bock steken is zeker niet aan te raden, dit gaf de langste uitvoeringstijd. We zien ook naar mate het aantal blocks stijgt het minder uitmaakt of we met een veelvoud van 32 aan het werken zijn.
 
-We kunnen dus besluiten dat voor grote parallele workloads het wel degelijk de moeite is om de data naar de GPU te kopi\"eren, en zo toch een snellere verwerkingstijd te halen dan op de CPU.
+We kunnen ook besluiten dat een optelling meer bewerkingstijd in beslag neemt dan het realloceren van geheugenplaatsen. We zien dit verschil duidelijk tussen INV, die sneller uitvoert dan ADD.
 
-%TODO conclusie over INV vs ADD snelheidsverschil
+Het besluit is dus, mits het correct alloceren van data op de GPU, het voor grote parallelle workloads veel interessanter is om een GPU te gebruiken dan een CPU.
 
 
 %----------------------------------------------------------------------------------------
