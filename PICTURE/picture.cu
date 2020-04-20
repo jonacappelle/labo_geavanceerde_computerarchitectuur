@@ -71,12 +71,16 @@ void encodeOneStep(const char* filename, const unsigned char* image, unsigned wi
 int BLOCKSIZE;
 
 // GPU
-__global__ void grayScale(int *a, int *b, int *out)
+__global__ void grayscale(unsigned char* image, unsigned char* grayscaleImage,unsigned int width,unsigned int height)
 {
 	absolute_position_x =(blockIdx.x * blockDim.x) + threadIdx.x;
 	absolute_position_y = (blockIdx.y * blockDim.y) + threadIdx.y;
+	if(absolute_position_x >= width || absolute_position_y >= height){
+		return;
+	}
+	unsigned char rgba = image[absolute_image_position_x + absolute_image_position_y * width];
 	float channelSum = .299f * rgba.x + .587f * rgba.y + .114f * rgba.z;
-	greyImage[absolute_image_position_x + absolute_image_position_y] = channelSum;
+	grayImage[absolute_image_position_x + absolute_image_position_y * width] = channelSum;
 }
 
 // CPU
@@ -108,18 +112,24 @@ int main()
 	
 	unsigned error;
 	unsigned char* image = 0;
+	unsigned char* grayImage = 0;
 	unsigned width, height;
   
 	error = lodepng_decode32_file(&image, &width, &height, filename);
 	if(error) printf("error %u: %s\n", error, lodepng_error_text(error));
   
 	/*use image here*/
+	grayscale<<<nBlocks, BLOCKSIZE>>>(image, grayImage, width, height);
 	
 	for(int i=0; i<width*height; i++)
 	{
 		printf("%f", image[i]);
 	}
 
+	for(int i=0; i<width*height; i++)
+	{
+		printf("%f", grayImage[i]);
+	}
 	////////////////////////////////////////////////////////////////////////////////
 	////////////////////////////////////////////////////////////////////////////////
   
