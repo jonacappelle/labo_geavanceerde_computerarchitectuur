@@ -1,0 +1,156 @@
+15:47:13 **** Incremental Build of configuration Debug for project grayscale ****
+make all 
+Building file: ../main.cu
+Invoking: NVCC Compiler
+/usr/local/cuda/bin/nvcc --device-debug --debug -gencode arch=compute_30,code=sm_30 -gencode arch=compute_30,code=compute_30 -ccbin g++ -c -o "main.o" "../main.cu"
+../main.cu(87): warning: expression has no effect
+
+../main.cu(87): warning: expression has no effect
+
+../main.cu: In function ‘int main()’:
+../main.cu:124:42: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘long unsigned int’ [-Wformat=]
+  printf("size of array %d\n", sizeof(image));
+                                          ^
+Finished building: ../main.cu
+ 
+Building target: grayscale
+Invoking: NVCC linker
+/usr/local/cuda/bin/nvcc --cudart=static -ccbin g++ -gencode arch=compute_30,code=sm_30 -gencode arch=compute_30,code=compute_30 -o "grayscale"  ./lodepng.o ./lodepng_util.o ./main.o   
+Finished building target: grayscale
+ 
+15:47:30 **** Incremental Build of configuration Debug for project grayscale ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+15:49:50 **** Incremental Build of configuration Debug for project grayscale ****
+make all 
+Building file: ../main.cu
+Invoking: NVCC Compiler
+/usr/local/cuda/bin/nvcc --device-debug --debug -gencode arch=compute_30,code=sm_30 -gencode arch=compute_30,code=compute_30 -ccbin g++ -c -o "main.o" "../main.cu"
+../main.cu(87): warning: expression has no effect
+
+../main.cu(124): warning: expression has no effect
+
+../main.cu(127): error: expected a ";"
+
+1 error detected in the compilation of "/tmp/tmpxft_00004962_00000000-6_main.cpp1.ii".
+make: *** [main.o] Error 1
+subdir.mk:32: recipe for target 'main.o' failed
+"make all" terminated with exit code 2. Build might be incomplete.
+15:50:03 **** Incremental Build of configuration Debug for project grayscale ****
+make all 
+Building file: ../main.cu
+Invoking: NVCC Compiler
+/usr/local/cuda/bin/nvcc --device-debug --debug -gencode arch=compute_30,code=sm_30 -gencode arch=compute_30,code=compute_30 -ccbin g++ -c -o "main.o" "../main.cu"
+../main.cu(87): warning: expression has no effect
+
+../main.cu(124): warning: expression has no effect
+
+../main.cu(87): warning: expression has no effect
+
+../main.cu(124): warning: expression has no effect
+
+Finished building: ../main.cu
+ 
+Building target: grayscale
+Invoking: NVCC linker
+/usr/local/cuda/bin/nvcc --cudart=static -ccbin g++ -gencode arch=compute_30,code=sm_30 -gencode arch=compute_30,code=compute_30 -o "grayscale"  ./lodepng.o ./lodepng_util.o ./main.o   
+Finished building target: grayscale
+ 
+15:54:17 **** Incremental Build of configuration Debug for project grayscale ****
+make all 
+Building file: ../main.cu
+Invoking: NVCC Compiler
+/usr/local/cuda/bin/nvcc --device-debug --debug -gencode arch=compute_30,code=sm_30 -gencode arch=compute_30,code=compute_30 -ccbin g++ -c -o "main.o" "../main.cu"
+../main.cu(87): warning: expression has no effect
+
+../main.cu(124): warning: expression has no effect
+
+../main.cu(87): warning: expression has no effect
+
+../main.cu(124): warning: expression has no effect
+
+Finished building: ../main.cu
+ 
+Building target: grayscale
+Invoking: NVCC linker
+/usr/local/cuda/bin/nvcc --cudart=static -ccbin g++ -gencode arch=compute_30,code=sm_30 -gencode arch=compute_30,code=compute_30 -o "grayscale"  ./lodepng.o ./lodepng_util.o ./main.o   
+Finished building target: grayscale
+ 
+15:58:08 **** Incremental Build of configuration Debug for project grayscale ****
+make all 
+Building file: ../main.cu
+Invoking: NVCC Compiler
+/usr/local/cuda/bin/nvcc --device-debug --debug -gencode arch=compute_30,code=sm_30 -gencode arch=compute_30,code=compute_30 -ccbin g++ -c -o "main.o" "../main.cu"
+../main.cu(87): warning: expression has no effect
+
+../main.cu(124): warning: expression has no effect
+
+../main.cu(87): warning: expression has no effect
+
+../main.cu(124): warning: expression has no effect
+
+../main.cu: In function ‘int main()’:
+../main.cu:126:75: warning: format ‘%f’ expects argument of type ‘double’, but argument 2 has type ‘int’ [-Wformat=]
+  printf("%f %f %f %f\n", image[i], image[i+1], image[i+2], image[i+3]);
+                         ~~~~~~~~                                          ^
+../main.cu:126:75: warning: format ‘%f’ expects argument of type ‘double’, but argument 3 has type ‘int’ [-Wformat=]
+../main.cu:126:75: warning: format ‘%f’ expects argument of type ‘double’, but argument 4 has type ‘int’ [-Wformat=]
+../main.cu:126:75: warning: format ‘%f’ expects argument of type ‘double’, but argument 5 has type ‘int’ [-Wformat=]
+Finished building: ../main.cu
+ 
+Building target: grayscale
+Invoking: NVCC linker
+/usr/local/cuda/bin/nvcc --cudart=static -ccbin g++ -gencode arch=compute_30,code=sm_30 -gencode arch=compute_30,code=compute_30 -o "grayscale"  ./lodepng.o ./lodepng_util.o ./main.o   
+Finished building target: grayscale
+ 
+15:58:55 **** Incremental Build of configuration Debug for project grayscale ****
+make all 
+Building file: ../main.cu
+Invoking: NVCC Compiler
+/usr/local/cuda/bin/nvcc --device-debug --debug -gencode arch=compute_30,code=sm_30 -gencode arch=compute_30,code=compute_30 -ccbin g++ -c -o "main.o" "../main.cu"
+../main.cu(87): warning: expression has no effect
+
+../main.cu(124): warning: expression has no effect
+
+../main.cu(87): warning: expression has no effect
+
+../main.cu(124): warning: expression has no effect
+
+Finished building: ../main.cu
+ 
+Building target: grayscale
+Invoking: NVCC linker
+/usr/local/cuda/bin/nvcc --cudart=static -ccbin g++ -gencode arch=compute_30,code=sm_30 -gencode arch=compute_30,code=compute_30 -o "grayscale"  ./lodepng.o ./lodepng_util.o ./main.o   
+Finished building target: grayscale
+ 
+15:59:57 **** Incremental Build of configuration Debug for project grayscale ****
+make all 
+Building file: ../main.cu
+Invoking: NVCC Compiler
+/usr/local/cuda/bin/nvcc --device-debug --debug -gencode arch=compute_30,code=sm_30 -gencode arch=compute_30,code=compute_30 -ccbin g++ -c -o "main.o" "../main.cu"
+../main.cu(87): warning: expression has no effect
+
+../main.cu(87): warning: expression has no effect
+
+Finished building: ../main.cu
+ 
+Building target: grayscale
+Invoking: NVCC linker
+/usr/local/cuda/bin/nvcc --cudart=static -ccbin g++ -gencode arch=compute_30,code=sm_30 -gencode arch=compute_30,code=compute_30 -o "grayscale"  ./lodepng.o ./lodepng_util.o ./main.o   
+Finished building target: grayscale
+ 
+16:00:25 **** Incremental Build of configuration Debug for project grayscale ****
+make all 
+make: Er hoeft niets gedaan te worden voor 'all'.
+16:01:39 **** Incremental Build of configuration Debug for project grayscale ****
+make all 
+Building file: ../main.cu
+Invoking: NVCC Compiler
+/usr/local/cuda/bin/nvcc --device-debug --debug -gencode arch=compute_30,code=sm_30 -gencode arch=compute_30,code=compute_30 -ccbin g++ -c -o "main.o" "../main.cu"
+Finished building: ../main.cu
+ 
+Building target: grayscale
+Invoking: NVCC linker
+/usr/local/cuda/bin/nvcc --cudart=static -ccbin g++ -gencode arch=compute_30,code=sm_30 -gencode arch=compute_30,code=compute_30 -o "grayscale"  ./lodepng.o ./lodepng_util.o ./main.o   
+Finished building target: grayscale
+ 
