@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "time.h": "c",
+        "cstdlib": "c",
+        "lodepng.h": "c"
+    }
+}
