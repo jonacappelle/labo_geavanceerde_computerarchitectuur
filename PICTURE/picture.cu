@@ -69,7 +69,7 @@ void encodeOneStep(const char* filename, const unsigned char* image, unsigned wi
 // KERNEL GRAYSCALE
 ////////////////////////////////////////////////////////////////////////////////
 int BLOCKSIZE;
-
+ 
 // GPU
 __global__ void grayscale(unsigned char* image, unsigned char* grayscaleImage,unsigned int width,unsigned int height)
 {
