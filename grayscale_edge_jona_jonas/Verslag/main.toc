@@ -1,0 +1,13 @@
+\babel@toc {dutch}{}
+\contentsline {section}{\numberline {1}Inleiding}{2}
+\contentsline {section}{\numberline {2}Probleemstelling}{2}
+\contentsline {section}{\numberline {3}Analyse performantie}{2}
+\contentsline {subsection}{\numberline {3.1}Grayscale}{2}
+\contentsline {subsubsection}{\numberline {3.1.1}Tijd op GPU}{2}
+\contentsline {subsubsection}{\numberline {3.1.2}Tijd op CPU}{2}
+\contentsline {subsection}{\numberline {3.2}Edge detection}{4}
+\contentsline {subsubsection}{\numberline {3.2.1}Tijd op GPU}{4}
+\contentsline {subsubsection}{\numberline {3.2.2}Tijd op CPU}{4}
+\contentsline {section}{\numberline {4}Besluit}{5}
+\contentsline {section}{\numberline {A}Grafieken}{6}
+\contentsline {section}{\numberline {B}CODE}{7}
