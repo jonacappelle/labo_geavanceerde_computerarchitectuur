@@ -30,6 +30,7 @@
 \usepackage[dutch]{babel}
 \usepackage[]{subfig}
 \usepackage[]{textcmds} % voor quotes
+\usepackage[]{listings}
 
 \loadglsentries{glossaries.tex}
 \makeglossaries % generate the glossary
@@ -110,7 +111,7 @@ Begeleider: &  Stijn Crul% Instructor/supervisor
 \tableofcontents
 \listoffigures
 \listoftables
-% \listoflistings
+\listoflistings
 \clearpage
 
 %----------------------------------------------------------------------------------------
@@ -118,12 +119,14 @@ Begeleider: &  Stijn Crul% Instructor/supervisor
 %----------------------------------------------------------------------------------------
 \section{Inleiding}
 
-In dit labo van geavanceerde computertechniek gaan we een grayscale van een afbeelding maken en edge detection toepassen. 
+In dit labo van geavanceerde computertechniek gaan we een grayscale van een afbeelding maken en edge detection toepassen.
+
+Een grayscale operatie zet alle kleurenwaarden om naar zwart-wit waarden met een equivalente luminantie. Een edge detection operatie detecteert grote verschillen tussen naburige pixels.
 
 %----------------------------------------------------------------------------------------
 %	PROBLEEMSTELLING
 %----------------------------------------------------------------------------------------
-\section{Probleemstelling}
+% \section{Probleemstelling}
 
 
 % welke uitdagingen
@@ -136,7 +139,7 @@ In dit labo van geavanceerde computertechniek gaan we een grayscale van een afbe
 %----------------------------------------------------------------------------------------
 %	ANALYSE PERFORMANTIE
 %----------------------------------------------------------------------------------------
-\section{Analyse performantie}
+\section{Probleemstelling en analyse performantie}
 
 %----------------------------------------------------------------------------------------
 \subsection{Grayscale}
@@ -144,7 +147,7 @@ In dit labo van geavanceerde computertechniek gaan we een grayscale van een afbe
 
 De bedoeling van het eerste deel van het labo is het omzetten van een kleurenafbeelding in een grayscale afbeelding. Het resultaat hiervan is terug te vinden in figuur \ref{fig:grayscale}. Bij de grayscale zijn er verschillende mogelijkheden om deze te implementeren. Men kan het gemiddelde nemen van de RGB waarden en dit gemiddelde toekennen aan elke R, G en B waarde. Er kan ook gewerkt worden met verschillende verhoudingen voor RGB waarden. In dit labo hebben we voor deze eerste optie gekozen.
 
-De ingelezen afbeelding zetten we met \q{lodepng} om naar een \'e\'endimensionale array met structuur zoals weergegeven in \ref{fig:1}.
+De ingelezen afbeelding zetten we met \q{lodepng} om naar een \'e\'endimensionale array met structuur zoals weergegeven in figuur \ref{fig:1}.
 
 
 
@@ -157,11 +160,13 @@ De ingelezen afbeelding zetten we met \q{lodepng} om naar een \'e\'endimensional
     Red          & Green          & Blue           & Alpha          \\ \hline
     \end{tabular}
 
-        \caption{}
+        \caption{Opbouw PNG afbeelding}
         \label{fig:1}
     \end{figure}
 
-    Hier moeten we er rekening mee houden dat het \q{alpha} kanaal, dat de opacity bepaald, altijd de waarde 255 moet hebben, om de afbeelding niet doorzichtig te maken.
+    Hier moeten we er rekening mee houden dat het \q{alpha} kanaal, dat de opacity bepaalt, altijd de waarde 255 moet hebben om de afbeelding niet doorzichtig te maken.
+
+    De code van grayscale is terug te vinden in deel \ref{code_grayscale} op pagina \pageref{code_grayscale} en volgende.
 
 
 \begin{figure}[h!]
@@ -187,7 +192,7 @@ De tijd die het duurt om de grayscale uit te voeren is:
 \begin{figure}[h!]
     \centering
     \includegraphics[]{gpu_grayscale.pdf}
-    \caption{Meting tijd op GPU bij verschillende bocksizes}
+    \caption{Meting tijd op GPU bij verschillende blocksizes}
     \label{fig:meting_grayscale_gpu}
 \end{figure}
 
@@ -199,13 +204,13 @@ Wanneer we een gray scale implementatie op de CPU schrijven, duurt het veel lang
     &t_{CPU} = \SI{656}{\micro s}
 \end{align*}
 
-Dit is meer dan dubbel zo lang dan de uitvoering op de GPU (zonder mee copi\"eren van de data). Bij een groot aantal fotos die omgezet moeten worden is de GPU met zijn parallelisatie veel sneller.
+Dit is meer dan dubbel zo lang dan de uitvoering op de GPU (zonder mee copi\"eren van de data). Uit vorig labo konden we al besluiten dat het langer zal duren met het mee copi\"eren van de data maar dat bij een groot aantal fotos die omgezet moeten worden de GPU met zijn parallelisatie toch veel sneller zal zijn. Om deze reden werd deze meting hier niet opnieuw gedaan.
 
 %----------------------------------------------------------------------------------------
 \subsection{Edge detection}
 %----------------------------------------------------------------------------------------
 
-In het tweede deel van het labo gaan we edge detection toepassen op een afbeelding. Het resultaat van deze operatie is terug te vinden in figuur \ref{fig:edge_dection}. Edge detection is een mooi vervolg op grayscale, daar we de grayscale toch ook nodig hebben om aan edge detection te doen. Voor de edge detection werd gewerkt met de gekende sobel filter. Het werkt op basis van een 3x3 matrix vermenigvuldiging met elke pixel van het beeld. Wanneer er veel verschil is naburige waarden van pixels, zal deze bewerking ofwel een zeer groot, of een zeer klein resultaat opleveren. We maken gebruik van twee 3x3 matrices, \'e\'en voor de veranderingen in de x-richting te detecteren ($G_x$) en \'e\'en voor de veranderingen in de y-richting te detecteren ($G_y$). Om deze waarden samen te voergen ($G$) en negatieve getallen te vermijden, wordt hier ook de wortel van de kwadraten van beide x en y resultaten genomen.
+In het tweede deel van het labo gaan we edge detection toepassen op een afbeelding. Het resultaat van deze operatie is terug te vinden in figuur \ref{fig:edge_dection}. Edge detection is een mooi vervolg op grayscale, daar we de grayscale ook nodig hebben om aan edge detection te doen. Voor de edge detection werd gewerkt met de gekende sobel filter. Het werkt op basis van een 3x3 matrix vermenigvuldiging met elke pixel van het beeld. Wanneer er veel verschil is naburige waarden van pixels, zal deze bewerking ofwel een zeer groot, of een zeer klein resultaat opleveren. We maken gebruik van twee 3x3 matrices, \'e\'en voor de veranderingen in de x-richting te detecteren ($G_x$) en \'e\'en voor de veranderingen in de y-richting te detecteren ($G_y$). Om deze waarden samen te voegen ($G$) en negatieve getallen te vermijden, wordt hier ook de wortel van de kwadraten van beide x en y resultaten genomen.
 
 \begin{figure}[H]
     \centering
@@ -231,6 +236,7 @@ In het tweede deel van het labo gaan we edge detection toepassen op een afbeeldi
     \label{fig:edge_dection}
 \end{figure}
 
+De code van edge detection is terug te vinden in deel \ref{code_edge_detection} op pagina \pageref{code_edge_detection} en volgende.
 
 
 \subsubsection{Tijd op GPU}
@@ -239,6 +245,14 @@ Als we de edge detectie op de GPU uitvoeren, duurt het:
 \begin{align*}
     &t_{GPU} = \SI{336}{\micro s}
 \end{align*}
+
+Hierbij werd rekening gehouden met het optimaal aantal threads per block een veelvoud te kiezen van 32. Zie listing \ref{listing1}. Er werd gekozen voor een Blocksize van 64 op 16 = 1024. nBlocks volgt hieruit: 64 (4 op 16). Door hier in 2D de threads te organiseren, laat dit ons toe de edge detection op de gpu intu\"itiever te coderen. De threads die naast en onder elkaar staan, zullen ook de waarden van de pixels berekenen die naast en onder elkaar staan.
+
+\begin{lstlisting}[language=C, caption=Keuze Blocksize en nBlock, frame=single]
+	// Choose Blocksize & nBlock in 2D
+	dim3 BLOCKSIZE(64,16);
+	dim3 nBlocks(ceil(width/64),ceil(height/16));
+\end{lstlisting}\label{listing1}
 
 
 \subsubsection{Tijd op CPU}
@@ -253,22 +267,48 @@ Als we de edge detectie op de GPU uitvoeren, duurt het:
 \section{Besluit}
 % waarom goed / niet goed
 
+% Please add the following required packages to your document preamble:
+% \usepackage{booktabs}
+% \usepackage{graphicx}
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{@{}lll@{}}
+    \toprule
+    Grayscale      &             &  \\ \midrule
+                   & Tijd op GPU &  \SI{304}{\micro s}\\
+                   & Tijd op CPU &  \SI{656}{\micro s}\\
+    \toprule
+    Edge detection &             &  \\ \midrule
+                   & Tijd op GPU &  \SI{336}{\micro s}\\
+                   & Tijd op CPU &  \SI{000000}{\micro s}\\ \bottomrule %TODO
+    \end{tabular}%
+    \caption{Samenvattende tabel tijden CPU en GPU}
+    \label{tab:samenvattende_tabel}
+    \end{table}
+
+Uit tabel \ref{tab:samenvattende_tabel} kunnen we besluiten dat het uitvoeren van bewerkingen op de GPU veel sneller kan gebeuren dan op een CPU. 
+
+Ook hier zien we terugkomen dat 32 threads per block optimaal is voor performantie. Dit komt aangezien CUDA GPU's kernels runnen die blokken van threads gebruiken met een veelvoud van 32. Indien de gebruiker ook dit veelvoud van 32 hanteert, zal er zoveel mogelijk parallelisatie optreden. Wanneer niet voor dit veelvoud gekozen wordt, zullen enkele threads niet gebruikt worden en zal het programma bijgevolg tragen uitgevoerd worden.
+
+Een ander conclusie die we kunnen maken is dat de edge detection langer duurt dan de grayscale. Bij de grayscale wordt enkel het gemiddelde van de pixels genomen: twee optellingen en \'e\'en vermenigvuldiging. Bij de edge detection wordt er vermenigvuldigd met twee maal een 3x3 matrix, wat meer tijd vergt (meer vermenigvuldigingen en optellingen).
+
+Conclusie: Bij grotere parallele workloads is het veel sneller om een GPU te gebruiken dan een CPU. Bij zeer kleine workloads heeft het copi\"eren van data van en naar de GPU een grote invloed op de uitvoeringstijd.
+
 %----------------------------------------------------------------------------------------
 %----------------------------------------------------------------------------------------
 
 \newpage
 \appendix
-\section{Grafieken}
-\label{grafieken}
-
 
 %----------------------------------------------------------------------------------------
 %----------------------------------------------------------------------------------------
 
-\newpage
-\section{CODE}
-\label{code}
+% \newpage
+\section{CODE GRAYSCALE}\label{code_grayscale}
 \inputminted[linenos=true, breaklines=true]{cuda}{main.cu}
+\clearpage
+\section{CODE EDGE DETECTION}\label{code_edge_detection}
+\inputminted[linenos=true, breaklines=true]{cuda}{edge.cu}
 
 %----------------------------------------------------------------------------------------
 %	BIBLIOGRAPHY

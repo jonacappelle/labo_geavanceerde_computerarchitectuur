@@ -1,5 +1,5 @@
 ////////////////////////////////////////////////////////////////////////////////
-// GRAYSCALE -- Jona Cappelle -- Jonas Bolle
+// EDGE DETECTION -- Jona Cappelle -- Jonas Bolle
 ////////////////////////////////////////////////////////////////////////////////
 
 // includes, system
@@ -19,10 +19,9 @@
 #include "iostream"
 #include "cstdlib"
 #include "time.h"	// timing on cpu
-#include "lodepng.h" // PNG image read
+#include "lodepng.h" // PNG afbeelding inlezen
 
 extern "C"
-
 
 void decodeOneStep(const char* filename) {
 	unsigned error;
@@ -51,30 +50,49 @@ void encodeOneStep(const char* filename, const unsigned char* image, unsigned wi
 int BLOCKSIZE;
 
 // GPU
-__global__ void grayscale(unsigned char* image, unsigned char* grayImage,unsigned width,unsigned height)
+__global__ void edge(unsigned char* orig, unsigned char* result,unsigned width,unsigned height)
 {
-	int j = (blockIdx.x*blockDim.x + threadIdx.x)*4;
 
-	if(j < width*height*4)
-	{
-		grayImage[j] = (image[j]+image[j+1]+image[j+2])/3;
-		grayImage[j+1] = (image[j]+image[j+1]+image[j+2])/3;
-		grayImage[j+2] = (image[j]+image[j+1]+image[j+2])/3;
-		grayImage[j+3] = 255;
-	}
+	int x = (threadIdx.x + blockIdx.x * blockDim.x)*4;
+    int y = (threadIdx.y + blockIdx.y * blockDim.y);
+    float dx, dy;
+    width=4*width;
+    if( x > 0 && y > 0 && x < (width-1) && y < (height-1)) {
+        dx = (-1* orig[(y-1)*width + (x-4)]) + (-2*orig[y*width+(x-4)]) + (-1*orig[(y+1)*width+(x-4)]) +
+             (    orig[(y-1)*width + (x+4)]) + ( 2*orig[y*width+(x+4)]) + (   orig[(y+1)*width+(x+4)]);
+        dy = (    orig[(y-1)*width + (x-4)]) + ( 2*orig[(y-1)*width+x]) + (   orig[(y-1)*width+(x+4)]) +
+             (-1* orig[(y+1)*width + (x-4)]) + (-2*orig[(y+1)*width+x]) + (-1*orig[(y+1)*width+(x+4)]);
+        result[y*width + x] = sqrt( (dx*dx) + (dy*dy) );
+        result[y*width + x + 1] = sqrt( (dx*dx) + (dy*dy) );
+        result[y*width + x + 2] = sqrt( (dx*dx) + (dy*dy) );
+        result[y*width + x + 3] = 255;
+    }
 
 }
 
 // CPU
-void grayscale_cpu(unsigned char* image, unsigned width, unsigned height)
+void edge_cpu(unsigned char* image, unsigned width, unsigned height)
 {
+	printf("test1");
+
 	for(int j=0; j < (width*height*4); j+=4)
 	{
 		image[j] = (image[j]+image[j+1]+image[j+2])/3;
 		image[j+1] = (image[j]+image[j+1]+image[j+2])/3;
 		image[j+2] = (image[j]+image[j+1]+image[j+2])/3;
+
+		if((image[j+4] - image[j]) > 5 )
+		{
+			image[j] = image[j+1] =image[j+2]= 255;
+		}else{
+			image[j] = image[j+1] =image[j+2]= 0;
+		}
+
 	}
+	printf("test2");
 }
+
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // Program main
@@ -100,46 +118,49 @@ int main()
 	image_in = (unsigned char *)malloc(width*height*4 * sizeof(char));
 	image_out = (unsigned char *)malloc(width*height*4 * sizeof(char));
 
-	// File to store measured time data
-	FILE *f = fopen("data.csv", "w");
 
-for (int BLOCKSIZE = 1; BLOCKSIZE < 300; BLOCKSIZE++)
-{
-	int nBlocks = (width*height*4) / BLOCKSIZE + ((width*height*4) % BLOCKSIZE == 0 ? 0 : 1);
-	printf("nBlocks: %d", nBlocks);
+	FILE *f = fopen("data.csv", "w");
 
 //	StopWatchInterface *timer = 0;
 //	sdkCreateTimer(&timer);
 //	sdkResetTimer(&timer);
 //	sdkStartTimer(&timer);
 
-//	grayscale_cpu(image, width, height);
+//	edge_cpu(image, width, height);
 
 //	sdkStopTimer(&timer);
 //	printf("Tijd: %f\n", sdkGetTimerValue(&timer));
 //	sdkDeleteTimer(&timer);
 
-	// 	// allocate arrays on device
+	// Grayscale on CPU
+	for(int j=0; j < (width*height*4); j+=4)
+	{
+		image[j] = (image[j]+image[j+1]+image[j+2])/3;
+		image[j+1] = (image[j]+image[j+1]+image[j+2])/3;
+		image[j+2] = (image[j]+image[j+1]+image[j+2])/3;
+	}
+
+	// Allocate arrays on device
 	cudaMalloc((void **)&image_in_dev, width*height*4 * sizeof(char));
 	cudaMalloc((void **)&image_out_dev, width*height*4 * sizeof(char));
 
 	cudaMemcpy(image_in_dev, image, width*height*4*sizeof(char), cudaMemcpyHostToDevice);
 	cudaMemcpy(image_out_dev, image_out, width*height*4*sizeof(char), cudaMemcpyHostToDevice);
 
-//	unsigned *width_1 = &width;
-//	cudaMemcpy(width_dev, width_1, sizeof(unsigned), cudaMemcpyHostToDevice);
-//	cudaMemcpy(height_dev, &height, sizeof(unsigned), cudaMemcpyHostToDevice);
-
 	// Record time on GPU with cuda events
 	cudaEvent_t start, stop;
 	cudaEventCreate(&start);
 	cudaEventCreate(&stop);
 
-////////////////////////////////////////////////////////////////////////////////
+	///////////////////////////
+	// Choose Blocksize & nBlock in 2D
+	dim3 BLOCKSIZE(64,16);
+	dim3 nBlocks(ceil(width/64),ceil(height/16));
+	///////////////////////////
+
 	cudaEventRecord(start);
-	grayscale <<< nBlocks, BLOCKSIZE >>> ( image_in_dev, image_out_dev, width, height );
+	edge <<< nBlocks, BLOCKSIZE >>> ( image_in_dev, image_out_dev, width, height );
 	cudaEventRecord(stop);
-////////////////////////////////////////////////////////////////////////////////
 
 	cudaMemcpy(image_in, image_in_dev, width*height*4*sizeof(char), cudaMemcpyDeviceToHost);
 	cudaMemcpy(image_out, image_out_dev, width*height*4*sizeof(char), cudaMemcpyDeviceToHost);
@@ -148,17 +169,14 @@ for (int BLOCKSIZE = 1; BLOCKSIZE < 300; BLOCKSIZE++)
 	cudaEventElapsedTime(&millis, start, stop);
 
 	printf("Tijd op GPU: %f\n", millis);
-	fprintf(f, "%d,%f\n", BLOCKSIZE, millis);
-}
 
-	// Close the file
+//	fprintf(f, "%d,%f\n", BLOCKSIZE, millis);
+
 	fclose(f);
 
-	// Save the result image
 	const char* output_filename = "output.png";
 	encodeOneStep(output_filename, image_out, width, height);
 
-	// Free memory
 	free(image_in);
 	free(image_out);
 

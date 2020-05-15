@@ -1,9 +1,9 @@
 \babel@toc {dutch}{}
-\contentsline {figure}{\numberline {1}{\ignorespaces \relax }}{2}
+\contentsline {figure}{\numberline {1}{\ignorespaces Opbouw PNG afbeelding\relax }}{2}
 \contentsline {figure}{\numberline {2}{\ignorespaces Resultaat grayscale\relax }}{3}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Input}}}{3}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Output}}}{3}
-\contentsline {figure}{\numberline {3}{\ignorespaces Meting tijd op GPU bij verschillende bocksizes\relax }}{3}
+\contentsline {figure}{\numberline {3}{\ignorespaces Meting tijd op GPU bij verschillende blocksizes\relax }}{3}
 \contentsline {figure}{\numberline {4}{\ignorespaces Resultaat edge detection\relax }}{5}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Input}}}{5}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Output}}}{5}

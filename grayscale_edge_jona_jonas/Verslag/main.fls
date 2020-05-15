@@ -279,6 +279,12 @@ INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/tex/latex/caption/ltcapti
 INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/tex/latex/caption/ltcaption.sty
 INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/tex/latex/amsrefs/textcmds.sty
 INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/tex/latex/amsrefs/textcmds.sty
+INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/tex/latex/listings/listings.sty
+INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/tex/latex/listings/listings.sty
+INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/tex/latex/listings/lstmisc.sty
+INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/tex/latex/listings/lstmisc.sty
+INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/tex/latex/listings/listings.cfg
+INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/tex/latex/listings/listings.cfg
 INPUT glossaries.tex
 INPUT glossaries.tex
 OUTPUT main.glo
@@ -301,6 +307,10 @@ INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/tex/latex/oberdiek/grfext
 INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/tex/latex/oberdiek/grfext.sty
 INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/tex/generic/oberdiek/kvdefinekeys.sty
 INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/tex/generic/oberdiek/kvdefinekeys.sty
+INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/tex/latex/base/textcomp.sty
+INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/tex/latex/base/textcomp.sty
+INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/tex/latex/base/ts1enc.def
+INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/tex/latex/base/ts1enc.def
 INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/tfm/public/cm/cmr8.tfm
 INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/tfm/public/cm/cmr6.tfm
 INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/tfm/public/cm/cmmi10.tfm
@@ -346,6 +356,9 @@ OUTPUT main.lof
 INPUT main.lot
 INPUT main.lot
 OUTPUT main.lot
+INPUT main.lol
+INPUT main.lol
+OUTPUT main.lol
 INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/tfm/public/cm/cmbx12.tfm
 INPUT input.png
 INPUT ./input.png
@@ -388,6 +401,11 @@ INPUT ./output_edge_detection.png
 INPUT ./output_edge_detection.png
 INPUT ./output_edge_detection.png
 INPUT ./output_edge_detection.png
+INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/tex/latex/listings/lstlang1.sty
+INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/tex/latex/listings/lstlang1.sty
+INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/tex/latex/listings/lstmisc.sty
+INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/tex/latex/listings/lstmisc.sty
+INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/tfm/public/cm/cmti10.tfm
 INPUT _minted-main/default-pyg-prefix.pygstyle
 INPUT _minted-main/default-pyg-prefix.pygstyle
 INPUT _minted-main/default-pyg-prefix.pygstyle
@@ -397,11 +415,16 @@ INPUT _minted-main/default.pygstyle
 INPUT _minted-main/default.pygstyle
 INPUT _minted-main/default.pygstyle
 INPUT ./main.cu
-INPUT _minted-main/C6B33349C4DEEC2A44D25BF1AE9C83D8F9567B98B1045808A0DF7CA00BA99343.pygtex
-INPUT _minted-main/C6B33349C4DEEC2A44D25BF1AE9C83D8F9567B98B1045808A0DF7CA00BA99343.pygtex
-INPUT _minted-main/C6B33349C4DEEC2A44D25BF1AE9C83D8F9567B98B1045808A0DF7CA00BA99343.pygtex
-INPUT _minted-main/C6B33349C4DEEC2A44D25BF1AE9C83D8F9567B98B1045808A0DF7CA00BA99343.pygtex
+INPUT _minted-main/E38483606392552C2439517D6CF3B28FF9567B98B1045808A0DF7CA00BA99343.pygtex
+INPUT _minted-main/E38483606392552C2439517D6CF3B28FF9567B98B1045808A0DF7CA00BA99343.pygtex
+INPUT _minted-main/E38483606392552C2439517D6CF3B28FF9567B98B1045808A0DF7CA00BA99343.pygtex
+INPUT _minted-main/E38483606392552C2439517D6CF3B28FF9567B98B1045808A0DF7CA00BA99343.pygtex
 INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/tfm/public/cm/cmitt10.tfm
+INPUT ./edge.cu
+INPUT _minted-main/6F36294A8E93F30D755F44A39548C6C4BA87015F6C5BC5AEEA15E801E3CB3FCC.pygtex
+INPUT _minted-main/6F36294A8E93F30D755F44A39548C6C4BA87015F6C5BC5AEEA15E801E3CB3FCC.pygtex
+INPUT _minted-main/6F36294A8E93F30D755F44A39548C6C4BA87015F6C5BC5AEEA15E801E3CB3FCC.pygtex
+INPUT _minted-main/6F36294A8E93F30D755F44A39548C6C4BA87015F6C5BC5AEEA15E801E3CB3FCC.pygtex
 INPUT main.bbl
 INPUT main.bbl
 INPUT main.aux
@@ -435,5 +458,7 @@ INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfon
 INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb
 INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb
+INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb
+INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb
 INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb
 INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb

@@ -1,0 +1,191 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{////////////////////////////////////////////////////////////////////////////////}
+\PYG{c+c1}{// EDGE DETECTION \PYGZhy{}\PYGZhy{} Jona Cappelle \PYGZhy{}\PYGZhy{} Jonas Bolle}
+\PYG{c+c1}{////////////////////////////////////////////////////////////////////////////////}
+
+\PYG{c+c1}{// includes, system}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}stdlib.h\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}stdio.h\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}string.h\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}math.h\PYGZgt{}}
+
+\PYG{c+c1}{// includes CUDA}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}cuda\PYGZus{}runtime.h\PYGZgt{}}
+
+\PYG{c+c1}{// includes, project}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}helper\PYGZus{}cuda.h\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}helper\PYGZus{}functions.h\PYGZgt{} // helper functions for SDK examples}
+
+\PYG{c+c1}{// own includes}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}iostream\PYGZdq{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}cstdlib\PYGZdq{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}time.h\PYGZdq{}	// timing on cpu}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}lodepng.h\PYGZdq{} // PNG afbeelding inlezen}
+
+\PYG{k}{extern} \PYG{l+s}{\PYGZdq{}C\PYGZdq{}}
+
+\PYG{k+kt}{void} \PYG{n}{decodeOneStep}\PYG{p}{(}\PYG{k}{const} \PYG{k+kt}{char}\PYG{o}{*} \PYG{n}{filename}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+	\PYG{k+kt}{unsigned} \PYG{n}{error}\PYG{p}{;}
+	\PYG{k+kt}{unsigned} \PYG{k+kt}{char}\PYG{o}{*} \PYG{n}{image} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+	\PYG{k+kt}{unsigned} \PYG{n}{width}\PYG{p}{,} \PYG{n}{height}\PYG{p}{;}
+
+	\PYG{n}{error} \PYG{o}{=} \PYG{n}{lodepng\PYGZus{}decode32\PYGZus{}file}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{image}\PYG{p}{,} \PYG{o}{\PYGZam{}}\PYG{n}{width}\PYG{p}{,} \PYG{o}{\PYGZam{}}\PYG{n}{height}\PYG{p}{,} \PYG{n}{filename}\PYG{p}{);}
+	\PYG{k}{if}\PYG{p}{(}\PYG{n}{error}\PYG{p}{)} \PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}error \PYGZpc{}u: \PYGZpc{}s}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,} \PYG{n}{error}\PYG{p}{,} \PYG{n}{lodepng\PYGZus{}error\PYGZus{}text}\PYG{p}{(}\PYG{n}{error}\PYG{p}{));}
+
+	\PYG{c+cm}{/*use image here*/}
+
+	\PYG{n}{free}\PYG{p}{(}\PYG{n}{image}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n}{encodeOneStep}\PYG{p}{(}\PYG{k}{const} \PYG{k+kt}{char}\PYG{o}{*} \PYG{n}{filename}\PYG{p}{,} \PYG{k}{const} \PYG{k+kt}{unsigned} \PYG{k+kt}{char}\PYG{o}{*} \PYG{n}{image}\PYG{p}{,} \PYG{k+kt}{unsigned} \PYG{n}{width}\PYG{p}{,} \PYG{k+kt}{unsigned} \PYG{n}{height}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+	\PYG{c+cm}{/*Encode the image*/}
+	\PYG{k+kt}{unsigned} \PYG{n}{error} \PYG{o}{=} \PYG{n}{lodepng\PYGZus{}encode32\PYGZus{}file}\PYG{p}{(}\PYG{n}{filename}\PYG{p}{,} \PYG{n}{image}\PYG{p}{,} \PYG{n}{width}\PYG{p}{,} \PYG{n}{height}\PYG{p}{);}
+
+	\PYG{c+cm}{/*if there\PYGZsq{}s an error, display it*/}
+	\PYG{k}{if}\PYG{p}{(}\PYG{n}{error}\PYG{p}{)} \PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}error \PYGZpc{}u: \PYGZpc{}s}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,} \PYG{n}{error}\PYG{p}{,} \PYG{n}{lodepng\PYGZus{}error\PYGZus{}text}\PYG{p}{(}\PYG{n}{error}\PYG{p}{));}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{c+c1}{////////////////////////////////////////////////////////////////////////////////}
+\PYG{c+c1}{// KERNEL GRAYSCALE}
+\PYG{c+c1}{////////////////////////////////////////////////////////////////////////////////}
+\PYG{k+kt}{int} \PYG{n}{BLOCKSIZE}\PYG{p}{;}
+
+\PYG{c+c1}{// GPU}
+\PYG{k+kr}{\PYGZus{}\PYGZus{}global\PYGZus{}\PYGZus{}} \PYG{k+kt}{void} \PYG{n+nf}{edge}\PYG{p}{(}\PYG{k+kt}{unsigned} \PYG{k+kt}{char}\PYG{o}{*} \PYG{n}{orig}\PYG{p}{,} \PYG{k+kt}{unsigned} \PYG{k+kt}{char}\PYG{o}{*} \PYG{n}{result}\PYG{p}{,}\PYG{k+kt}{unsigned} \PYG{n}{width}\PYG{p}{,}\PYG{k+kt}{unsigned} \PYG{n}{height}\PYG{p}{)}
+\PYG{p}{\PYGZob{}}
+
+	\PYG{k+kt}{int} \PYG{n}{x} \PYG{o}{=} \PYG{p}{(}\PYG{n+nb}{threadIdx}\PYG{p}{.}\PYG{n}{x} \PYG{o}{+} \PYG{n+nb}{blockIdx}\PYG{p}{.}\PYG{n}{x} \PYG{o}{*} \PYG{n+nb}{blockDim}\PYG{p}{.}\PYG{n}{x}\PYG{p}{)}\PYG{o}{*}\PYG{l+m+mi}{4}\PYG{p}{;}
+    \PYG{k+kt}{int} \PYG{n}{y} \PYG{o}{=} \PYG{p}{(}\PYG{n+nb}{threadIdx}\PYG{p}{.}\PYG{n}{y} \PYG{o}{+} \PYG{n+nb}{blockIdx}\PYG{p}{.}\PYG{n}{y} \PYG{o}{*} \PYG{n+nb}{blockDim}\PYG{p}{.}\PYG{n}{y}\PYG{p}{);}
+    \PYG{k+kt}{float} \PYG{n}{dx}\PYG{p}{,} \PYG{n}{dy}\PYG{p}{;}
+    \PYG{n}{width}\PYG{o}{=}\PYG{l+m+mi}{4}\PYG{o}{*}\PYG{n}{width}\PYG{p}{;}
+    \PYG{k}{if}\PYG{p}{(} \PYG{n}{x} \PYG{o}{\PYGZgt{}} \PYG{l+m+mi}{0} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{y} \PYG{o}{\PYGZgt{}} \PYG{l+m+mi}{0} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{x} \PYG{o}{\PYGZlt{}} \PYG{p}{(}\PYG{n}{width}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{)} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{y} \PYG{o}{\PYGZlt{}} \PYG{p}{(}\PYG{n}{height}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{))} \PYG{p}{\PYGZob{}}
+        \PYG{n}{dx} \PYG{o}{=} \PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{o}{*} \PYG{n}{orig}\PYG{p}{[(}\PYG{n}{y}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{o}{*}\PYG{n}{width} \PYG{o}{+} \PYG{p}{(}\PYG{n}{x}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{4}\PYG{p}{)])} \PYG{o}{+} \PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{orig}\PYG{p}{[}\PYG{n}{y}\PYG{o}{*}\PYG{n}{width}\PYG{o}{+}\PYG{p}{(}\PYG{n}{x}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{4}\PYG{p}{)])} \PYG{o}{+} \PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{o}{*}\PYG{n}{orig}\PYG{p}{[(}\PYG{n}{y}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{o}{*}\PYG{n}{width}\PYG{o}{+}\PYG{p}{(}\PYG{n}{x}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{4}\PYG{p}{)])} \PYG{o}{+}
+             \PYG{p}{(}    \PYG{n}{orig}\PYG{p}{[(}\PYG{n}{y}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{o}{*}\PYG{n}{width} \PYG{o}{+} \PYG{p}{(}\PYG{n}{x}\PYG{o}{+}\PYG{l+m+mi}{4}\PYG{p}{)])} \PYG{o}{+} \PYG{p}{(} \PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{orig}\PYG{p}{[}\PYG{n}{y}\PYG{o}{*}\PYG{n}{width}\PYG{o}{+}\PYG{p}{(}\PYG{n}{x}\PYG{o}{+}\PYG{l+m+mi}{4}\PYG{p}{)])} \PYG{o}{+} \PYG{p}{(}   \PYG{n}{orig}\PYG{p}{[(}\PYG{n}{y}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{o}{*}\PYG{n}{width}\PYG{o}{+}\PYG{p}{(}\PYG{n}{x}\PYG{o}{+}\PYG{l+m+mi}{4}\PYG{p}{)]);}
+        \PYG{n}{dy} \PYG{o}{=} \PYG{p}{(}    \PYG{n}{orig}\PYG{p}{[(}\PYG{n}{y}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{o}{*}\PYG{n}{width} \PYG{o}{+} \PYG{p}{(}\PYG{n}{x}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{4}\PYG{p}{)])} \PYG{o}{+} \PYG{p}{(} \PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{orig}\PYG{p}{[(}\PYG{n}{y}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{o}{*}\PYG{n}{width}\PYG{o}{+}\PYG{n}{x}\PYG{p}{])} \PYG{o}{+} \PYG{p}{(}   \PYG{n}{orig}\PYG{p}{[(}\PYG{n}{y}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{o}{*}\PYG{n}{width}\PYG{o}{+}\PYG{p}{(}\PYG{n}{x}\PYG{o}{+}\PYG{l+m+mi}{4}\PYG{p}{)])} \PYG{o}{+}
+             \PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{o}{*} \PYG{n}{orig}\PYG{p}{[(}\PYG{n}{y}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{o}{*}\PYG{n}{width} \PYG{o}{+} \PYG{p}{(}\PYG{n}{x}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{4}\PYG{p}{)])} \PYG{o}{+} \PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{orig}\PYG{p}{[(}\PYG{n}{y}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{o}{*}\PYG{n}{width}\PYG{o}{+}\PYG{n}{x}\PYG{p}{])} \PYG{o}{+} \PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{o}{*}\PYG{n}{orig}\PYG{p}{[(}\PYG{n}{y}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{o}{*}\PYG{n}{width}\PYG{o}{+}\PYG{p}{(}\PYG{n}{x}\PYG{o}{+}\PYG{l+m+mi}{4}\PYG{p}{)]);}
+        \PYG{n}{result}\PYG{p}{[}\PYG{n}{y}\PYG{o}{*}\PYG{n}{width} \PYG{o}{+} \PYG{n}{x}\PYG{p}{]} \PYG{o}{=} \PYG{n}{sqrt}\PYG{p}{(} \PYG{p}{(}\PYG{n}{dx}\PYG{o}{*}\PYG{n}{dx}\PYG{p}{)} \PYG{o}{+} \PYG{p}{(}\PYG{n}{dy}\PYG{o}{*}\PYG{n}{dy}\PYG{p}{)} \PYG{p}{);}
+        \PYG{n}{result}\PYG{p}{[}\PYG{n}{y}\PYG{o}{*}\PYG{n}{width} \PYG{o}{+} \PYG{n}{x} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{=} \PYG{n}{sqrt}\PYG{p}{(} \PYG{p}{(}\PYG{n}{dx}\PYG{o}{*}\PYG{n}{dx}\PYG{p}{)} \PYG{o}{+} \PYG{p}{(}\PYG{n}{dy}\PYG{o}{*}\PYG{n}{dy}\PYG{p}{)} \PYG{p}{);}
+        \PYG{n}{result}\PYG{p}{[}\PYG{n}{y}\PYG{o}{*}\PYG{n}{width} \PYG{o}{+} \PYG{n}{x} \PYG{o}{+} \PYG{l+m+mi}{2}\PYG{p}{]} \PYG{o}{=} \PYG{n}{sqrt}\PYG{p}{(} \PYG{p}{(}\PYG{n}{dx}\PYG{o}{*}\PYG{n}{dx}\PYG{p}{)} \PYG{o}{+} \PYG{p}{(}\PYG{n}{dy}\PYG{o}{*}\PYG{n}{dy}\PYG{p}{)} \PYG{p}{);}
+        \PYG{n}{result}\PYG{p}{[}\PYG{n}{y}\PYG{o}{*}\PYG{n}{width} \PYG{o}{+} \PYG{n}{x} \PYG{o}{+} \PYG{l+m+mi}{3}\PYG{p}{]} \PYG{o}{=} \PYG{l+m+mi}{255}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+
+\PYG{p}{\PYGZcb{}}
+
+\PYG{c+c1}{// CPU}
+\PYG{k+kt}{void} \PYG{n+nf}{edge\PYGZus{}cpu}\PYG{p}{(}\PYG{k+kt}{unsigned} \PYG{k+kt}{char}\PYG{o}{*} \PYG{n}{image}\PYG{p}{,} \PYG{k+kt}{unsigned} \PYG{n}{width}\PYG{p}{,} \PYG{k+kt}{unsigned} \PYG{n}{height}\PYG{p}{)}
+\PYG{p}{\PYGZob{}}
+	\PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}test1\PYGZdq{}}\PYG{p}{);}
+
+	\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{j}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{j} \PYG{o}{\PYGZlt{}} \PYG{p}{(}\PYG{n}{width}\PYG{o}{*}\PYG{n}{height}\PYG{o}{*}\PYG{l+m+mi}{4}\PYG{p}{);} \PYG{n}{j}\PYG{o}{+=}\PYG{l+m+mi}{4}\PYG{p}{)}
+	\PYG{p}{\PYGZob{}}
+		\PYG{n}{image}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]} \PYG{o}{=} \PYG{p}{(}\PYG{n}{image}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]}\PYG{o}{+}\PYG{n}{image}\PYG{p}{[}\PYG{n}{j}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{+}\PYG{n}{image}\PYG{p}{[}\PYG{n}{j}\PYG{o}{+}\PYG{l+m+mi}{2}\PYG{p}{])}\PYG{o}{/}\PYG{l+m+mi}{3}\PYG{p}{;}
+		\PYG{n}{image}\PYG{p}{[}\PYG{n}{j}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{=} \PYG{p}{(}\PYG{n}{image}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]}\PYG{o}{+}\PYG{n}{image}\PYG{p}{[}\PYG{n}{j}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{+}\PYG{n}{image}\PYG{p}{[}\PYG{n}{j}\PYG{o}{+}\PYG{l+m+mi}{2}\PYG{p}{])}\PYG{o}{/}\PYG{l+m+mi}{3}\PYG{p}{;}
+		\PYG{n}{image}\PYG{p}{[}\PYG{n}{j}\PYG{o}{+}\PYG{l+m+mi}{2}\PYG{p}{]} \PYG{o}{=} \PYG{p}{(}\PYG{n}{image}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]}\PYG{o}{+}\PYG{n}{image}\PYG{p}{[}\PYG{n}{j}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{+}\PYG{n}{image}\PYG{p}{[}\PYG{n}{j}\PYG{o}{+}\PYG{l+m+mi}{2}\PYG{p}{])}\PYG{o}{/}\PYG{l+m+mi}{3}\PYG{p}{;}
+
+		\PYG{k}{if}\PYG{p}{((}\PYG{n}{image}\PYG{p}{[}\PYG{n}{j}\PYG{o}{+}\PYG{l+m+mi}{4}\PYG{p}{]} \PYG{o}{\PYGZhy{}} \PYG{n}{image}\PYG{p}{[}\PYG{n}{j}\PYG{p}{])} \PYG{o}{\PYGZgt{}} \PYG{l+m+mi}{5} \PYG{p}{)}
+		\PYG{p}{\PYGZob{}}
+			\PYG{n}{image}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]} \PYG{o}{=} \PYG{n}{image}\PYG{p}{[}\PYG{n}{j}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{=}\PYG{n}{image}\PYG{p}{[}\PYG{n}{j}\PYG{o}{+}\PYG{l+m+mi}{2}\PYG{p}{]}\PYG{o}{=} \PYG{l+m+mi}{255}\PYG{p}{;}
+		\PYG{p}{\PYGZcb{}}\PYG{k}{else}\PYG{p}{\PYGZob{}}
+			\PYG{n}{image}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]} \PYG{o}{=} \PYG{n}{image}\PYG{p}{[}\PYG{n}{j}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{=}\PYG{n}{image}\PYG{p}{[}\PYG{n}{j}\PYG{o}{+}\PYG{l+m+mi}{2}\PYG{p}{]}\PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+		\PYG{p}{\PYGZcb{}}
+
+	\PYG{p}{\PYGZcb{}}
+	\PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}test2\PYGZdq{}}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+
+
+\PYG{c+c1}{////////////////////////////////////////////////////////////////////////////////}
+\PYG{c+c1}{// Program main}
+\PYG{c+c1}{////////////////////////////////////////////////////////////////////////////////}
+\PYG{k+kt}{int} \PYG{n+nf}{main}\PYG{p}{()}
+\PYG{p}{\PYGZob{}}
+	\PYG{c+c1}{////////////////////////////////////////////////////////////////////////////////}
+	\PYG{c+c1}{// Load PNG file}
+	\PYG{c+c1}{////////////////////////////////////////////////////////////////////////////////}
+	\PYG{k+kt}{float} \PYG{n}{millis} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+	\PYG{k+kt}{unsigned} \PYG{k+kt}{char} \PYG{o}{*}\PYG{n}{image\PYGZus{}in}\PYG{p}{,} \PYG{o}{*}\PYG{n}{image\PYGZus{}out}\PYG{p}{,} \PYG{o}{*}\PYG{n}{image\PYGZus{}in\PYGZus{}dev}\PYG{p}{,} \PYG{o}{*}\PYG{n}{image\PYGZus{}out\PYGZus{}dev}\PYG{p}{;}
+	\PYG{k+kt}{unsigned} \PYG{n}{width}\PYG{p}{,} \PYG{n}{height}\PYG{p}{,} \PYG{n}{width\PYGZus{}dev}\PYG{p}{,} \PYG{n}{height\PYGZus{}dev}\PYG{p}{;}
+
+	\PYG{k}{const} \PYG{k+kt}{char}\PYG{o}{*} \PYG{n}{filename} \PYG{o}{=} \PYG{l+s}{\PYGZdq{}test.png\PYGZdq{}}\PYG{p}{;}
+
+	\PYG{k+kt}{unsigned} \PYG{n}{error}\PYG{p}{;}
+	\PYG{k+kt}{unsigned} \PYG{k+kt}{char}\PYG{o}{*} \PYG{n}{image} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+
+	\PYG{n}{error} \PYG{o}{=} \PYG{n}{lodepng\PYGZus{}decode32\PYGZus{}file}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{image}\PYG{p}{,} \PYG{o}{\PYGZam{}}\PYG{n}{width}\PYG{p}{,} \PYG{o}{\PYGZam{}}\PYG{n}{height}\PYG{p}{,} \PYG{n}{filename}\PYG{p}{);}
+	\PYG{k}{if}\PYG{p}{(}\PYG{n}{error}\PYG{p}{)} \PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}error \PYGZpc{}u: \PYGZpc{}s}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,} \PYG{n}{error}\PYG{p}{,} \PYG{n}{lodepng\PYGZus{}error\PYGZus{}text}\PYG{p}{(}\PYG{n}{error}\PYG{p}{));}
+
+	\PYG{c+c1}{// allocate arrays on host}
+	\PYG{n}{image\PYGZus{}in} \PYG{o}{=} \PYG{p}{(}\PYG{k+kt}{unsigned} \PYG{k+kt}{char} \PYG{o}{*}\PYG{p}{)}\PYG{n}{malloc}\PYG{p}{(}\PYG{n}{width}\PYG{o}{*}\PYG{n}{height}\PYG{o}{*}\PYG{l+m+mi}{4} \PYG{o}{*} \PYG{k}{sizeof}\PYG{p}{(}\PYG{k+kt}{char}\PYG{p}{));}
+	\PYG{n}{image\PYGZus{}out} \PYG{o}{=} \PYG{p}{(}\PYG{k+kt}{unsigned} \PYG{k+kt}{char} \PYG{o}{*}\PYG{p}{)}\PYG{n}{malloc}\PYG{p}{(}\PYG{n}{width}\PYG{o}{*}\PYG{n}{height}\PYG{o}{*}\PYG{l+m+mi}{4} \PYG{o}{*} \PYG{k}{sizeof}\PYG{p}{(}\PYG{k+kt}{char}\PYG{p}{));}
+
+
+	\PYG{k+kt}{FILE} \PYG{o}{*}\PYG{n}{f} \PYG{o}{=} \PYG{n}{fopen}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}data.csv\PYGZdq{}}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}w\PYGZdq{}}\PYG{p}{);}
+
+\PYG{c+c1}{//	StopWatchInterface *timer = 0;}
+\PYG{c+c1}{//	sdkCreateTimer(\PYGZam{}timer);}
+\PYG{c+c1}{//	sdkResetTimer(\PYGZam{}timer);}
+\PYG{c+c1}{//	sdkStartTimer(\PYGZam{}timer);}
+
+\PYG{c+c1}{//	edge\PYGZus{}cpu(image, width, height);}
+
+\PYG{c+c1}{//	sdkStopTimer(\PYGZam{}timer);}
+\PYG{c+c1}{//	printf(\PYGZdq{}Tijd: \PYGZpc{}f\PYGZbs{}n\PYGZdq{}, sdkGetTimerValue(\PYGZam{}timer));}
+\PYG{c+c1}{//	sdkDeleteTimer(\PYGZam{}timer);}
+
+	\PYG{c+c1}{// Grayscale on CPU}
+	\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{j}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{j} \PYG{o}{\PYGZlt{}} \PYG{p}{(}\PYG{n}{width}\PYG{o}{*}\PYG{n}{height}\PYG{o}{*}\PYG{l+m+mi}{4}\PYG{p}{);} \PYG{n}{j}\PYG{o}{+=}\PYG{l+m+mi}{4}\PYG{p}{)}
+	\PYG{p}{\PYGZob{}}
+		\PYG{n}{image}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]} \PYG{o}{=} \PYG{p}{(}\PYG{n}{image}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]}\PYG{o}{+}\PYG{n}{image}\PYG{p}{[}\PYG{n}{j}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{+}\PYG{n}{image}\PYG{p}{[}\PYG{n}{j}\PYG{o}{+}\PYG{l+m+mi}{2}\PYG{p}{])}\PYG{o}{/}\PYG{l+m+mi}{3}\PYG{p}{;}
+		\PYG{n}{image}\PYG{p}{[}\PYG{n}{j}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{=} \PYG{p}{(}\PYG{n}{image}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]}\PYG{o}{+}\PYG{n}{image}\PYG{p}{[}\PYG{n}{j}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{+}\PYG{n}{image}\PYG{p}{[}\PYG{n}{j}\PYG{o}{+}\PYG{l+m+mi}{2}\PYG{p}{])}\PYG{o}{/}\PYG{l+m+mi}{3}\PYG{p}{;}
+		\PYG{n}{image}\PYG{p}{[}\PYG{n}{j}\PYG{o}{+}\PYG{l+m+mi}{2}\PYG{p}{]} \PYG{o}{=} \PYG{p}{(}\PYG{n}{image}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]}\PYG{o}{+}\PYG{n}{image}\PYG{p}{[}\PYG{n}{j}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{+}\PYG{n}{image}\PYG{p}{[}\PYG{n}{j}\PYG{o}{+}\PYG{l+m+mi}{2}\PYG{p}{])}\PYG{o}{/}\PYG{l+m+mi}{3}\PYG{p}{;}
+	\PYG{p}{\PYGZcb{}}
+
+	\PYG{c+c1}{// Allocate arrays on device}
+	\PYG{n}{cudaMalloc}\PYG{p}{((}\PYG{k+kt}{void} \PYG{o}{**}\PYG{p}{)}\PYG{o}{\PYGZam{}}\PYG{n}{image\PYGZus{}in\PYGZus{}dev}\PYG{p}{,} \PYG{n}{width}\PYG{o}{*}\PYG{n}{height}\PYG{o}{*}\PYG{l+m+mi}{4} \PYG{o}{*} \PYG{k}{sizeof}\PYG{p}{(}\PYG{k+kt}{char}\PYG{p}{));}
+	\PYG{n}{cudaMalloc}\PYG{p}{((}\PYG{k+kt}{void} \PYG{o}{**}\PYG{p}{)}\PYG{o}{\PYGZam{}}\PYG{n}{image\PYGZus{}out\PYGZus{}dev}\PYG{p}{,} \PYG{n}{width}\PYG{o}{*}\PYG{n}{height}\PYG{o}{*}\PYG{l+m+mi}{4} \PYG{o}{*} \PYG{k}{sizeof}\PYG{p}{(}\PYG{k+kt}{char}\PYG{p}{));}
+
+	\PYG{n}{cudaMemcpy}\PYG{p}{(}\PYG{n}{image\PYGZus{}in\PYGZus{}dev}\PYG{p}{,} \PYG{n}{image}\PYG{p}{,} \PYG{n}{width}\PYG{o}{*}\PYG{n}{height}\PYG{o}{*}\PYG{l+m+mi}{4}\PYG{o}{*}\PYG{k}{sizeof}\PYG{p}{(}\PYG{k+kt}{char}\PYG{p}{),} \PYG{n}{cudaMemcpyHostToDevice}\PYG{p}{);}
+	\PYG{n}{cudaMemcpy}\PYG{p}{(}\PYG{n}{image\PYGZus{}out\PYGZus{}dev}\PYG{p}{,} \PYG{n}{image\PYGZus{}out}\PYG{p}{,} \PYG{n}{width}\PYG{o}{*}\PYG{n}{height}\PYG{o}{*}\PYG{l+m+mi}{4}\PYG{o}{*}\PYG{k}{sizeof}\PYG{p}{(}\PYG{k+kt}{char}\PYG{p}{),} \PYG{n}{cudaMemcpyHostToDevice}\PYG{p}{);}
+
+	\PYG{c+c1}{// Record time on GPU with cuda events}
+	\PYG{n}{cudaEvent\PYGZus{}t} \PYG{n}{start}\PYG{p}{,} \PYG{n}{stop}\PYG{p}{;}
+	\PYG{n}{cudaEventCreate}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{start}\PYG{p}{);}
+	\PYG{n}{cudaEventCreate}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{stop}\PYG{p}{);}
+
+	\PYG{c+c1}{///////////////////////////}
+	\PYG{c+c1}{// Choose Blocksize \PYGZam{} nBlock in 2D}
+	\PYG{k+kt}{dim3} \PYG{n}{BLOCKSIZE}\PYG{p}{(}\PYG{l+m+mi}{64}\PYG{p}{,}\PYG{l+m+mi}{16}\PYG{p}{);}
+	\PYG{k+kt}{dim3} \PYG{n}{nBlocks}\PYG{p}{(}\PYG{n}{ceil}\PYG{p}{(}\PYG{n}{width}\PYG{o}{/}\PYG{l+m+mi}{64}\PYG{p}{),}\PYG{n}{ceil}\PYG{p}{(}\PYG{n}{height}\PYG{o}{/}\PYG{l+m+mi}{16}\PYG{p}{));}
+	\PYG{c+c1}{///////////////////////////}
+
+	\PYG{n}{cudaEventRecord}\PYG{p}{(}\PYG{n}{start}\PYG{p}{);}
+	\PYG{n}{edge} \PYG{o}{\PYGZlt{}\PYGZlt{}\PYGZlt{}} \PYG{n}{nBlocks}\PYG{p}{,} \PYG{n}{BLOCKSIZE} \PYG{o}{\PYGZgt{}\PYGZgt{}\PYGZgt{}} \PYG{p}{(} \PYG{n}{image\PYGZus{}in\PYGZus{}dev}\PYG{p}{,} \PYG{n}{image\PYGZus{}out\PYGZus{}dev}\PYG{p}{,} \PYG{n}{width}\PYG{p}{,} \PYG{n}{height} \PYG{p}{);}
+	\PYG{n}{cudaEventRecord}\PYG{p}{(}\PYG{n}{stop}\PYG{p}{);}
+
+	\PYG{n}{cudaMemcpy}\PYG{p}{(}\PYG{n}{image\PYGZus{}in}\PYG{p}{,} \PYG{n}{image\PYGZus{}in\PYGZus{}dev}\PYG{p}{,} \PYG{n}{width}\PYG{o}{*}\PYG{n}{height}\PYG{o}{*}\PYG{l+m+mi}{4}\PYG{o}{*}\PYG{k}{sizeof}\PYG{p}{(}\PYG{k+kt}{char}\PYG{p}{),} \PYG{n}{cudaMemcpyDeviceToHost}\PYG{p}{);}
+	\PYG{n}{cudaMemcpy}\PYG{p}{(}\PYG{n}{image\PYGZus{}out}\PYG{p}{,} \PYG{n}{image\PYGZus{}out\PYGZus{}dev}\PYG{p}{,} \PYG{n}{width}\PYG{o}{*}\PYG{n}{height}\PYG{o}{*}\PYG{l+m+mi}{4}\PYG{o}{*}\PYG{k}{sizeof}\PYG{p}{(}\PYG{k+kt}{char}\PYG{p}{),} \PYG{n}{cudaMemcpyDeviceToHost}\PYG{p}{);}
+
+	\PYG{n}{cudaEventSynchronize}\PYG{p}{(}\PYG{n}{stop}\PYG{p}{);}
+	\PYG{n}{cudaEventElapsedTime}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{millis}\PYG{p}{,} \PYG{n}{start}\PYG{p}{,} \PYG{n}{stop}\PYG{p}{);}
+
+	\PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Tijd op GPU: \PYGZpc{}f}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,} \PYG{n}{millis}\PYG{p}{);}
+
+\PYG{c+c1}{//	fprintf(f, \PYGZdq{}\PYGZpc{}d,\PYGZpc{}f\PYGZbs{}n\PYGZdq{}, BLOCKSIZE, millis);}
+
+	\PYG{n}{fclose}\PYG{p}{(}\PYG{n}{f}\PYG{p}{);}
+
+	\PYG{k}{const} \PYG{k+kt}{char}\PYG{o}{*} \PYG{n}{output\PYGZus{}filename} \PYG{o}{=} \PYG{l+s}{\PYGZdq{}output.png\PYGZdq{}}\PYG{p}{;}
+	\PYG{n}{encodeOneStep}\PYG{p}{(}\PYG{n}{output\PYGZus{}filename}\PYG{p}{,} \PYG{n}{image\PYGZus{}out}\PYG{p}{,} \PYG{n}{width}\PYG{p}{,} \PYG{n}{height}\PYG{p}{);}
+
+	\PYG{n}{free}\PYG{p}{(}\PYG{n}{image\PYGZus{}in}\PYG{p}{);}
+	\PYG{n}{free}\PYG{p}{(}\PYG{n}{image\PYGZus{}out}\PYG{p}{);}
+
+	\PYG{n}{cudaFree}\PYG{p}{(}\PYG{n}{image\PYGZus{}in\PYGZus{}dev}\PYG{p}{);}
+	\PYG{n}{cudaFree}\PYG{p}{(}\PYG{n}{image\PYGZus{}out\PYGZus{}dev}\PYG{p}{);}
+
+	\PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Done!\PYGZdq{}}\PYG{p}{);}
+
+	\PYG{k}{return} \PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

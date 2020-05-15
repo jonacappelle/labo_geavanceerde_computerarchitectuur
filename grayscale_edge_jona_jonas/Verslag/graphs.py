@@ -83,7 +83,7 @@ plt.ylim(0.2,1.2)
 # ax.legend().remove()
 
 plt.ylabel("Tijd [ms]")
-plt.xlabel("Aantal blocks")
+plt.xlabel("Blocksize")
 
 
 
