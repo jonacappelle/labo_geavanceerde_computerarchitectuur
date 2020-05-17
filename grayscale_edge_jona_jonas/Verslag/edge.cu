@@ -45,7 +45,7 @@ void encodeOneStep(const char* filename, const unsigned char* image, unsigned wi
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-// KERNEL GRAYSCALE
+// KERNEL EDGE DETECTION
 ////////////////////////////////////////////////////////////////////////////////
 int BLOCKSIZE;
 
@@ -71,24 +71,63 @@ __global__ void edge(unsigned char* orig, unsigned char* result,unsigned width,u
 }
 
 // CPU
-void edge_cpu(unsigned char* image, unsigned width, unsigned height)
+void edge_cpu(unsigned char* image,unsigned char* image_out, unsigned width, unsigned height)
 {
 	printf("test1");
 
 	for(int j=0; j < (width*height*4); j+=4)
-	{
-		image[j] = (image[j]+image[j+1]+image[j+2])/3;
-		image[j+1] = (image[j]+image[j+1]+image[j+2])/3;
-		image[j+2] = (image[j]+image[j+1]+image[j+2])/3;
+    {
+        image[j] = (image[j]+image[j+1]+image[j+2])/3;
+        image[j+1] = (image[j]+image[j+1]+image[j+2])/3;
+        image[j+2] = (image[j]+image[j+1]+image[j+2])/3;
+    }
+    int dx,dy,val;
+	 int sobel_x[3][3] =
+        { { -1, 0, 1 },
+          { -2, 0, 2 },
+          { -1, 0, 1 } };
 
-		if((image[j+4] - image[j]) > 5 )
-		{
-			image[j] = image[j+1] =image[j+2]= 255;
-		}else{
-			image[j] = image[j+1] =image[j+2]= 0;
-		}
+    int sobel_y[3][3] =
+        { { -1, -2, -1 },
+          { 0,  0,  0 },
+          { 1,  2,  1 } };
 
-	}
+    for (int x=1; x < (width-1); x++)
+      {
+         for (int y=1; y < (height-1); y++)
+            {
+
+                dx = (sobel_x[0][0] * image[width*4 * (y-1) + (x-1)*4])
+                        + (sobel_x[0][1] * image[width*4 * (y-1) +  x*4   ])
+                        + (sobel_x[0][2] * image[width*4 * (y-1) + (x+1)*4])
+                        + (sobel_x[1][0] * image[width*4 *  y    + (x-1)*4])
+                        + (sobel_x[1][1] * image[width*4 *  y    +  x *4  ])
+                        + (sobel_x[1][2] * image[width*4 *  y    + (x+1)*4])
+                        + (sobel_x[2][0] * image[width*4 * (y+1) + (x-1)*4])
+                        + (sobel_x[2][1] * image[width*4 * (y+1) +  x *4  ])
+                        + (sobel_x[2][2] * image[width*4 * (y+1) + (x+1)*4]);
+
+                dy = (sobel_y[0][0] * image[width*4 * (y-1) + (x-1)*4])
+                        + (sobel_y[0][1] * image[width*4 * (y-1) +  x *4  ])
+                        + (sobel_y[0][2] * image[width*4 * (y-1) + (x+1)*4])
+                        + (sobel_y[1][0] * image[width*4 *  y    + (x-1)*4])
+                        + (sobel_y[1][1] * image[width*4 *  y    +  x *4  ])
+                        + (sobel_y[1][2] * image[width*4 *  y    + (x+1)*4])
+                        + (sobel_y[2][0] * image[width*4 * (y+1) + (x-1)*4])
+                        + (sobel_y[2][1] * image[width*4 * (y+1) +  x *4  ])
+                        + (sobel_y[2][2] * image[width*4 * (y+1) + (x+1)*4]);
+
+                int val = (int)sqrt((dx * dx) + (dy * dy));
+
+                if(val < 0) val = 0;
+                if(val > 255) val = 255;
+
+                image_out[width*4 * (y-1) + (x-1)*4] = val;
+                image_out[width*4 * (y-1) + (x-1)*4+1] = val;
+                image_out[width*4 * (y-1) + (x-1)*4+2] = val;
+                image_out[width*4 * (y-1) + (x-1)*4+3] = 255;
+            }
+      }
 	printf("test2");
 }
 
@@ -126,7 +165,7 @@ int main()
 //	sdkResetTimer(&timer);
 //	sdkStartTimer(&timer);
 
-//	edge_cpu(image, width, height);
+//	edge_cpu(image, image_out, width, height);
 
 //	sdkStopTimer(&timer);
 //	printf("Tijd: %f\n", sdkGetTimerValue(&timer));
