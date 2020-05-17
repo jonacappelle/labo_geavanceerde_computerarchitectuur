@@ -406,6 +406,13 @@ INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/tex/latex/listings/lstlan
 INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/tex/latex/listings/lstmisc.sty
 INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/tex/latex/listings/lstmisc.sty
 INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/tfm/public/cm/cmti10.tfm
+INPUT input.png
+INPUT ./input.png
+INPUT outputcpu.png
+INPUT ./outputcpu.png
+INPUT ./outputcpu.png
+INPUT ./outputcpu.png
+INPUT ./outputcpu.png
 INPUT _minted-main/default-pyg-prefix.pygstyle
 INPUT _minted-main/default-pyg-prefix.pygstyle
 INPUT _minted-main/default-pyg-prefix.pygstyle
@@ -421,10 +428,10 @@ INPUT _minted-main/E38483606392552C2439517D6CF3B28FF9567B98B1045808A0DF7CA00BA99
 INPUT _minted-main/E38483606392552C2439517D6CF3B28FF9567B98B1045808A0DF7CA00BA99343.pygtex
 INPUT C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/tfm/public/cm/cmitt10.tfm
 INPUT ./edge.cu
-INPUT _minted-main/6F36294A8E93F30D755F44A39548C6C4BA87015F6C5BC5AEEA15E801E3CB3FCC.pygtex
-INPUT _minted-main/6F36294A8E93F30D755F44A39548C6C4BA87015F6C5BC5AEEA15E801E3CB3FCC.pygtex
-INPUT _minted-main/6F36294A8E93F30D755F44A39548C6C4BA87015F6C5BC5AEEA15E801E3CB3FCC.pygtex
-INPUT _minted-main/6F36294A8E93F30D755F44A39548C6C4BA87015F6C5BC5AEEA15E801E3CB3FCC.pygtex
+INPUT _minted-main/C77FDD08F0FA0B85BA09F1BE19B2692DBA87015F6C5BC5AEEA15E801E3CB3FCC.pygtex
+INPUT _minted-main/C77FDD08F0FA0B85BA09F1BE19B2692DBA87015F6C5BC5AEEA15E801E3CB3FCC.pygtex
+INPUT _minted-main/C77FDD08F0FA0B85BA09F1BE19B2692DBA87015F6C5BC5AEEA15E801E3CB3FCC.pygtex
+INPUT _minted-main/C77FDD08F0FA0B85BA09F1BE19B2692DBA87015F6C5BC5AEEA15E801E3CB3FCC.pygtex
 INPUT main.bbl
 INPUT main.bbl
 INPUT main.aux

@@ -7,6 +7,6 @@
 \contentsline {subsection}{\numberline {2.2}Edge detection}{4}
 \contentsline {subsubsection}{\numberline {2.2.1}Tijd op GPU}{4}
 \contentsline {subsubsection}{\numberline {2.2.2}Tijd op CPU}{5}
-\contentsline {section}{\numberline {3}Besluit}{6}
-\contentsline {section}{\numberline {A}CODE GRAYSCALE}{7}
-\contentsline {section}{\numberline {B}CODE EDGE DETECTION}{12}
+\contentsline {section}{\numberline {3}Besluit}{7}
+\contentsline {section}{\numberline {A}CODE GRAYSCALE}{8}
+\contentsline {section}{\numberline {B}CODE EDGE DETECTION}{13}

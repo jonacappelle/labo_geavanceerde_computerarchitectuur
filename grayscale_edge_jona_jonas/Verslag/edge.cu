@@ -73,7 +73,6 @@ __global__ void edge(unsigned char* orig, unsigned char* result,unsigned width,u
 // CPU
 void edge_cpu(unsigned char* image,unsigned char* image_out, unsigned width, unsigned height)
 {
-	printf("test1");
 
 	for(int j=0; j < (width*height*4); j+=4)
     {
@@ -128,9 +127,7 @@ void edge_cpu(unsigned char* image,unsigned char* image_out, unsigned width, uns
                 image_out[width*4 * (y-1) + (x-1)*4+3] = 255;
             }
       }
-	printf("test2");
 }
-
 
 
 ////////////////////////////////////////////////////////////////////////////////

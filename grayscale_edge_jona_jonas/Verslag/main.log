@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.11.28)  15 MAY 2020 13:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.11.28)  17 MAY 2020 21:15
 entering extended mode
 **"e:/GOOGLE_DRIVE/SCHOOL 2019-2020/Geavanceerde computerarchitectuur/Labo/grayscale_edge_jona_jonas/Verslag/main.tex"
 ("e:/GOOGLE_DRIVE/SCHOOL 2019-2020/Geavanceerde computerarchitectuur/Labo/grayscale_edge_jona_jonas/Verslag/main.tex"
@@ -1255,7 +1255,23 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 File: lstlang1.sty 2018/09/02 1.7 listings language file
 ) ("C:\Users\jonac\AppData\Local\Programs\MiKTeX 2.9\tex\latex\listings\lstmisc.sty"
 File: lstmisc.sty 2018/09/02 1.7 (Carsten Heinz)
-) [4 <./1.png> <./2.png>] [5 <./output_edge_detection.png>] [6] (_minted-main/default-pyg-prefix.pygstyle) (_minted-main/default.pygstyle) (_minted-main/E38483606392552C2439517D6CF3B28FF9567B98B1045808A0DF7CA00BA99343.pygtex
+) [4 <./1.png> <./2.png>]
+File: input.png Graphic file (type png)
+<use input.png>
+Package pdftex.def Info: input.png  used on input line 271.
+(pdftex.def)             Requested size: 209.12683pt x 209.12549pt.
+<outputcpu.png, id=77, 256.96pt x 256.96pt>
+File: outputcpu.png Graphic file (type png)
+<use outputcpu.png>
+Package pdftex.def Info: outputcpu.png  used on input line 273.
+(pdftex.def)             Requested size: 209.12683pt x 209.12843pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[5 <./output_edge_detection.png>] [6 <./outputcpu.png>] [7
+
+] (_minted-main/default-pyg-prefix.pygstyle) (_minted-main/default.pygstyle) (_minted-main/E38483606392552C2439517D6CF3B28FF9567B98B1045808A0DF7CA00BA99343.pygtex
 Overfull \hbox (43.54239pt too wide) in paragraph at lines 2--2
 | | | |[]\OT1/cmtt/m/it/10.95 ////////////////////////////////////////////////////////////////////////////////[]|  
  []
@@ -1270,7 +1286,7 @@ LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10.95> not available
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [7]
+ [8]
 Overfull \hbox (43.54239pt too wide) in paragraph at lines 49--49
 | | | |[]\OT1/cmtt/m/it/10.95 ////////////////////////////////////////////////////////////////////////////////[]|  
  []
@@ -1288,7 +1304,7 @@ Overfull \hbox (43.54239pt too wide) in paragraph at lines 80--80
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [8]
+ [9]
 Overfull \hbox (43.54239pt too wide) in paragraph at lines 82--82
 | | | |[]\OT1/cmtt/m/it/10.95 ////////////////////////////////////////////////////////////////////////////////[]|  
  []
@@ -1306,7 +1322,7 @@ Overfull \hbox (89.53189pt too wide) in paragraph at lines 87--87
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [9]
+ [10]
 Overfull \hbox (43.54239pt too wide) in paragraph at lines 139--139
 | | | |[]\OT1/cmtt/m/it/10.95 ////////////////////////////////////////////////////////////////////////////////[]|  
  []
@@ -1319,7 +1335,7 @@ Overfull \hbox (43.54239pt too wide) in paragraph at lines 143--143
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [10]) [11] (_minted-main/6F36294A8E93F30D755F44A39548C6C4BA87015F6C5BC5AEEA15E801E3CB3FCC.pygtex
+ [11]) [12] (_minted-main/C77FDD08F0FA0B85BA09F1BE19B2692DBA87015F6C5BC5AEEA15E801E3CB3FCC.pygtex
 Overfull \hbox (43.54239pt too wide) in paragraph at lines 2--2
 | | | |[]\OT1/cmtt/m/it/10.95 ////////////////////////////////////////////////////////////////////////////////[]|  
  []
@@ -1332,7 +1348,7 @@ Overfull \hbox (43.54239pt too wide) in paragraph at lines 4--4
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [12
+ [13
 
 ]
 Overfull \hbox (43.54239pt too wide) in paragraph at lines 48--48
@@ -1347,35 +1363,41 @@ Overfull \hbox (43.54239pt too wide) in paragraph at lines 50--50
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [13]
-Overfull \hbox (43.54239pt too wide) in paragraph at lines 98--98
-| | | |[]\OT1/cmtt/m/it/10.95 ////////////////////////////////////////////////////////////////////////////////[]|  
- []
-
-
-Overfull \hbox (43.54239pt too wide) in paragraph at lines 100--100
-| | | |[]\OT1/cmtt/m/it/10.95 ////////////////////////////////////////////////////////////////////////////////[]|  
- []
-
-
-Overfull \hbox (89.53189pt too wide) in paragraph at lines 103--103
-| | | |[][]\OT1/cmtt/m/it/10.95 ////////////////////////////////////////////////////////////////////////////////[]|  
- []
-
-
-Overfull \hbox (89.53189pt too wide) in paragraph at lines 105--105
-| | | |[][]\OT1/cmtt/m/it/10.95 ////////////////////////////////////////////////////////////////////////////////[]|  
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
  [14]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [15]) [16] (main.bbl) 
+ [15]
+Overfull \hbox (43.54239pt too wide) in paragraph at lines 134--134
+| | | |[]\OT1/cmtt/m/it/10.95 ////////////////////////////////////////////////////////////////////////////////[]|  
+ []
+
+
+Overfull \hbox (43.54239pt too wide) in paragraph at lines 136--136
+| | | |[]\OT1/cmtt/m/it/10.95 ////////////////////////////////////////////////////////////////////////////////[]|  
+ []
+
+
+Overfull \hbox (89.53189pt too wide) in paragraph at lines 139--139
+| | | |[][]\OT1/cmtt/m/it/10.95 ////////////////////////////////////////////////////////////////////////////////[]|  
+ []
+
+
+Overfull \hbox (89.53189pt too wide) in paragraph at lines 141--141
+| | | |[][]\OT1/cmtt/m/it/10.95 ////////////////////////////////////////////////////////////////////////////////[]|  
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [16]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [17]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [18]) [19] (main.bbl) 
 AED: lastpage setting LastPage
-[17
+[20
 
 ]
 
@@ -1385,17 +1407,17 @@ This document will not have a glossary.
 
 (main.aux) ) 
 Here is how much of TeX's memory you used:
- 35151 strings out of 492970
- 687091 string characters out of 3126593
- 961308 words of memory out of 3000000
- 38479 multiletter control sequences out of 15000+200000
+ 35157 strings out of 492970
+ 687197 string characters out of 3126593
+ 963323 words of memory out of 3000000
+ 38484 multiletter control sequences out of 15000+200000
  543458 words of font info for 64 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  61i,15n,96p,2271b,1208s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\jonac\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1095.pk><C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmitt10.pfb><C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/jonac/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on main.pdf (19 pages, 314653 bytes).
+Output written on main.pdf (22 pages, 327895 bytes).
 PDF statistics:
- 181 PDF objects out of 1000 (max. 8388607)
+ 192 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 48 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 53 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -87,7 +87,7 @@
 
 \begin{center}
 \begin{tabular}{l r}
-Sessie Datum: & 9 Maart, 2020 \\ % Date the experiment was performed
+Sessie Datum: & 4 Mei, 2020 \\ % Date the experiment was performed
 \\
 Partners: &  Jona Cappelle\\ % Partner names
 &  Jonas Bolle\\
@@ -232,7 +232,7 @@ In het tweede deel van het labo gaan we edge detection toepassen op een afbeeldi
     \subfloat[Input]{\includegraphics[width=0.5\columnwidth]{input.png}}
     \hfill
     \subfloat[Output]{\includegraphics[width=0.5\columnwidth]{output_edge_detection.png}}
-    \caption{Resultaat edge detection}
+    \caption{Resultaat edge detection GPU}
     \label{fig:edge_dection}
 \end{figure}
 
@@ -277,13 +277,13 @@ Als we de edge detectie op de CPU uitvoeren, duurt het:
 
 Dit is 10 keer langer dan de bewerking op de GPU! Hoe intensiever de taken worden, hoe groter de tijdswinst als we te werk gaan met een GPU.
 
-Het resultaat van de edge detection op de CPU is te vinden op figuur \ref{fig:edge_dection_cpu}.
+Het resultaat van de edge detection op de CPU is terug te vinden in figuur \ref{fig:edge_dection_cpu}.
 
 
 %----------------------------------------------------------------------------------------
 %	BESLUIT
 %----------------------------------------------------------------------------------------
-\newpage
+\clearpage
 \section{Besluit}
 % waarom goed / niet goed
 
@@ -310,9 +310,9 @@ Uit tabel \ref{tab:samenvattende_tabel} kunnen we besluiten dat het uitvoeren va
 
 Ook hier zien we terugkomen dat 32 threads per block optimaal is voor performantie. Dit komt aangezien CUDA GPU's kernels runnen die blokken van threads gebruiken met een veelvoud van 32. Indien de gebruiker ook dit veelvoud van 32 hanteert, zal er zoveel mogelijk parallelisatie optreden. Wanneer niet voor dit veelvoud gekozen wordt, zullen enkele threads niet gebruikt worden en zal het programma bijgevolg trager uitgevoerd worden.
 
-Een ander conclusie die we kunnen maken is dat de edge detection langer duurt dan de grayscale. Bij de grayscale wordt enkel het gemiddelde van de pixels genomen: twee optellingen en \'e\'en vermenigvuldiging. Bij de edge detection wordt er vermenigvuldigd met twee maal een 3x3 matrix, wat meer tijd vergt (meer vermenigvuldigingen en optellingen).
+Een andere conclusie die we kunnen maken is dat de edge detection langer duurt dan de grayscale. Bij de grayscale wordt enkel het gemiddelde van de pixels genomen: twee optellingen en \'e\'en vermenigvuldiging. Bij de edge detection wordt er vermenigvuldigd met twee maal een 3x3 matrix, wat meer tijd vergt (meer vermenigvuldigingen en optellingen).
 
-Conclusie: Bij grotere parallele workloads is het veel sneller om een GPU te gebruiken dan een CPU. Dit kunnen we ook zien aan de speedup factor van de grayscale functie en de egde detection functie: de GPU voert de grayscale functie 2x sneller uit dan de CPU, bij de egde detection is dit x10! Bij zeer kleine workloads heeft het kopi\"eren van data van en naar de GPU een grote invloed op de uitvoeringstijd.
+Conclusie: Bij zeer kleine workloads heeft het kopi\"eren van data van en naar de GPU een grote invloed op de uitvoeringstijd. Bij grotere parallele workloads is het veel sneller om een GPU te gebruiken dan een CPU. Dit kunnen we ook zien aan de speedup factor van de grayscale functie en de egde detection functie: de GPU voert de grayscale functie 2x sneller uit dan de CPU, bij de egde detection is dit x10! 
 
 %----------------------------------------------------------------------------------------
 %----------------------------------------------------------------------------------------
