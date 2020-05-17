@@ -236,6 +236,8 @@ In het tweede deel van het labo gaan we edge detection toepassen op een afbeeldi
     \label{fig:edge_dection}
 \end{figure}
 
+
+
 De code van edge detection is terug te vinden in deel \ref{code_edge_detection} op pagina \pageref{code_edge_detection} en volgende.
 
 
@@ -261,6 +263,16 @@ Als we de edge detectie op de CPU uitvoeren, duurt het:
 \begin{align*}
     &t_{CPU} = \SI{3496}{\micro s}
 \end{align*}
+
+Het resultaat van de edge detection op de CPU is te vinden op figuur \ref{fig:edge_dection_cpu}
+\begin{figure}[h!]
+    \centering
+    \subfloat[Input]{\includegraphics[width=0.5\columnwidth]{input.png}}
+    \hfill
+    \subfloat[Output]{\includegraphics[width=0.5\columnwidth]{outputcpu.png}}
+    \caption{Resultaat edge detection CPU}
+    \label{fig:edge_dection_cpu}
+\end{figure}
 
 Dit is 10 keer langer dan de bewerking op de GPU! Hoe intensiever de taken worden, hoe groter de tijdswinst als we te werk gaan met een GPU.
 
